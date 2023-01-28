@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AirPollutionApp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inika:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./dist/css/main.min.css">
 </head>
 
@@ -16,81 +19,119 @@
 
         <h1>AIR POLLUTION APP</h1>
 
-        <div class="category__box">
-            <h2>Zanieczyszczenie powietrza</h2>
-            <div class="underline"></div>
-            <div class="category__card">
-                <img class="category__img" src="" alt="">
-                <i class="category__card-info"></i>
-                <p class="category__card-title">PM2.5</p>
-                <p class="category__card-data">58 <span>uq/m3</span></p>
+        <div class="air-weather">
+
+            <div class="air-weather__air-quality">
+                <img class="air-weather__img" src="./dist/img/question.png" alt="weather icon">
+                <p class="air-weather__title">Jakość powietrza: <span id="air-quality"></span></p>
             </div>
 
-            <div class="category__card">
-                <img class="category__img" src="" alt="">
-                <i class="category__card-info"></i>
-                <p class="category__card-title">PM2.5</p>
-                <p class="category__card-data">58 <span>uq/m3</span></p>
+
+            <div class="weather-type">
+                <img src="./src/img/unknown.png" alt="weather icon">
+                <p class="weather-type__title">SŁONECZNIE</p>
             </div>
 
-            <div class="category__card">
-                <img class="category__img" src="" alt="">
-                <i class="category__card-info"></i>
-                <p class="category__card-title">PM2.5</p>
-                <p class="category__card-data">58 <span>uq/m3</span></p>
-            </div>
+
         </div>
 
-        <div class="weather-type__box">
-            <img class="weather-type__img" src="./src/img/unknown.png" alt="">
-            <h3 class="weather-type__title">SŁONECZNIE</h3>
+        <div class="statisctics-box">
+            <div class="category-box pollution">
+                <div class="category-box__title">
+                    <h2>Smog</h2>
+                    <div class="underline pollution-underline"></div>
+                </div>
+                <div class="category-box__card">
+                    <img class="category-box__img" src="./src/img/PM10.svg" alt="PM10 icon">
+                    <button class="info"><img src="./dist/img/info.svg" alt="info icon"></button>
+                    <i class="category-box__card-info"></i>
+                    <p class="category-box__card-title">PM10</p>
+                    <p class="category-box__card-data">58 <span>uq/m3</span></p>
+                </div>
+
+                <div class="category-box__card">
+                    <img class="category-box__img" src="./src/img/PM2.5.svg" alt="PM2.5 icon">
+                   <button class="info"> <img src="./dist/img/info.svg" alt="info icon"></button>
+                    <i class="category-box__card-info"></i>
+                    <p class="category-box__card-title">PM2.5</p>
+                    <p class="category-box__card-data">58 <span>uq/m3</span></p>
+                </div>
+
+                <div class="category-box__card category-box__card--third-element">
+                    <img class="category-box__img category-box__img--co" src="./dist/img/carbon-dioxide.svg" alt="Carbon monoxide icon">
+                    <button class="info"><img src="./dist/img/info.svg" alt="info icon"></button>
+                    <i class="category-box__card-info"></i>
+                    <p class="category-box__card-title">Co</p>
+                    <p class="category-box__card-data">58 <span>uq/m3</span></p>
+                </div>
+
+                <div class="category-box__card category-box__card--third-element">
+                    <img class="category-box__img category-box__img--so2" src="./dist/img/Triangle.svg" alt="Sulphur dioxide icon">
+                    <button class="info"><img src="./dist/img/info.svg" alt="info icon"></button>
+                    <i class="category-box__card-info"></i>
+                    <p class="category-box__card-title">SO2</p>
+                    <p class="category-box__card-data">13<span>uq/m3</span></p>
+                </div>
+            </div>
+
+
+            <div class="adress">
+                <p class="adress__city"><img class="adress__icon" src="dist/img/icon_map.svg"
+                        alt="location icon">WROCŁAW
+                </p>
+                <input type="text" placeholder="Podaj nazwę miasta">
+                <button class="ok">OK</button>
+            </div>
+
+
+            <div class="category-box weather-stats">
+                <div class="weather-stats-title">
+                    <h2>Pogoda</h2>
+                    <div class="underline weather-stats-underline"></div>
+                </div>
+                <div class="category-box__card">
+                    <img class="category-box__img category-box__img--temp" src="./dist/img/thermometer1.svg" alt="temp icon">
+                    <button class="info"><img  src="./dist/img/info.svg" alt="info icon"></button>
+                    <i class="category-box__card-info"></i>
+                    <p class="category-box__card-title">Temp</p>
+                    <p class="category-box__card-data">20 <span>C</span></p>
+                </div>
+
+                <div class="category-box__card">
+                    <img class="category-box__img category-box__img--real" src="./dist/img/realfeel.svg" alt="feel temp icon">
+                    <button class="info"><img src="./dist/img/info.svg" alt="info icon"></button>
+                    <i class="category-box__card-info"></i>
+                    <p class="category-box__card-title">Odczuwalna</p>
+                    <p class="category-box__card-data">15 <span>C</span></p>
+                </div>
+
+                <div class="category-box__card">
+                    <img class="category-box__img" src="./dist/img/humidity.svg" alt="humidity icon">
+                   <button class="info"> <img src="./dist/img/info.svg" alt="info icon"></button>
+                    <i class="category-box__card-info"></i>
+                    <p class="category-box__card-title">Wilgotność</p>
+                    <p class="category-box__card-data">80 <span>%</span></p>
+                </div>
+
+                <div class="category-box__card">
+                    <img class="category-box__img category-box__img--wind" src="./dist/img/Wind.svg" alt="wind speed icon">
+                   <button class="info"> <img src="./dist/img/info.svg" alt="info icon"></button>
+                    <i class="category-box__card-info"></i>
+                    <p class="category-box__card-title">Wiatr</p>
+                    <p class="category-box__card-data">30 <span>km/h</span></p>
+                </div>
+            </div>
+
         </div>
 
-        <div class="category__box">
-            <h2>Pogoda</h2>
-            <div class="underline"></div>
-            <div class="category__card">
-                <img class="category__img" src="" alt="">
-                <i class="category__card-info"></i>
-                <p class="category__card-title">Temp</p>
-                <p class="category__card-data">20 <span>C</span></p>
-            </div>
 
-            <div class="category__card">
-                <img class="category__img" src="" alt="">
-                <i class="category__card-info"></i>
-                <p class="category__card-title">Odczuwalna</p>
-                <p class="category__card-data">15 <span>C</span></p>
-            </div>
+<div class="bird-items">
 
-            <div class="category__card">
-                <img class="category__img" src="" alt="">
-                <i class="category__card-info"></i>
-                <p class="category__card-title">Hum</p>
-                <p class="category__card-data">80 <span>%</span></p>
-            </div>
-
-            <div class="category__card">
-                <img class="category__img" src="" alt="">
-                <i class="category__card-info"></i>
-                <p class="category__card-title">pr.Wiatru</p>
-                <p class="category__card-data">30 <span>km/h</span></p>
-            </div>
-        </div>
-
-
-
-        <div class="adress__box">
-            <p class="adress__box-city"><img class="adres__box-icon" src="./src/img/icon _map.svg">WROCŁAW</p>
-            <input type="text" placeholder="Wpisz miasto">
-            <button>Zatwierdź</button>
-        </div> 
-
-        <img src="./src/img/Brunch.svg" alt="brunch">
-        <img src="./src/img/Bird.png" alt="canary">
-
-        <img src="./src/img/brird'stext.svg" alt="speech bubble">
-        <p class="bubble-text">Lepiej zostań w domu!</p>
+    <img src="./src/img/Brunch.svg" alt="brunch">
+    <img src="./src/img/Bird.png" alt="canary">
+    <img src="./src/img/brird'stext.svg" alt="speech bubble">
+    <p class="bubble-text">Lepiej zostań w domu!</p>
+</div>
 
     </div>
 
