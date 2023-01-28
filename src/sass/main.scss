@@ -67,6 +67,7 @@ h1 {
 
 	&__air-quality{
 		margin-left: 2em;
+		margin-top: 1em;
 
 		.air-weather__title{
 			margin-top: 0.5em;
@@ -169,12 +170,17 @@ h1 {
 
 .weather-type {
 	margin-right: 4.8em;
-	img{
-		width: 200px;
+	&__img{
+		// width: 170px;
+		// height: 130px;
+		width: 130px;
+		height: 120px;
+		margin-left: 1em;
 	}
 	&__title {
-		text-align: center;
+		// text-align: center;
 		margin-top: 0.5em;
+		margin-right: .9em;
 		font-size: 2.5rem;
 	}
 }
@@ -227,4 +233,30 @@ h1 {
 .bird-items{
 	position: absolute;
 	display: none;
+}
+
+
+body{
+	
+		width: 100%;
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-size: 300% 300%;
+		background-image: linear-gradient(
+			  -45deg, 
+			  rgba(59,173,227,1) 0%, 
+			  rgba(87,111,230,1) 25%, 
+			  rgba(152,68,183,1) 51%, 
+			  rgba(255,53,127,1) 100%
+		);  
+		animation: AnimateBG 20s ease infinite;
+	  
+	  
+	  @keyframes AnimateBG { 
+		0%{background-position:0% 50%}
+		50%{background-position:100% 50%}
+		100%{background-position:0% 50%}
+	  }
 }
