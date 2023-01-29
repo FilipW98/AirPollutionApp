@@ -29,9 +29,7 @@ const API_KEY = '&appid=b005763a5f5701376b641f6d866e7e64&units=metric';
 // const API_LINK3 = "https://api.openweathermap.org/data/2.5/weather?"
 
 const getCoordinates = () => {
-    
-    const city = input.value || 'Wrocław';
-  
+	const city = input.value || 'Wrocław';
 
 	fetch(API_LINK + city + API_KEY)
 		.then(res => res.json())
@@ -40,7 +38,8 @@ const getCoordinates = () => {
 			const lat = `lat=${data[0].lat}`;
 			const lon = `&lon=${data[0].lon}`;
 			getAirPollution(lat, lon);
-            getWeather(lat,lon);
+			getWeather(lat, lon);
+			// getAirPollutionData();
 		})
 		.catch(err => console.log('error', err));
 };
@@ -50,63 +49,73 @@ const getAirPollution = (lat, lon) => {
 	fetch(API_LINK2 + lat + lon + API_KEY)
 		.then(res => res.json())
 		.then(data => {
-
+            pm10.textContent = (data.list[0].components.pm10).toFixed(1) + " uq/m3"
+            pm25.textContent = (data.list[0].components.pm2_5).toFixed(1) + " uq/m3"
+            co.textContent = (data.list[0].components.co).toFixed(1) + " uq/m3"
+            so2.textContent = (data.list[0].components.so2).toFixed(1) + " uq/m3"
 			const locationIcon = document.createElement('img');
 			locationIcon.classList.add('adress__icon');
 			locationIcon.setAttribute('src', 'dist/img/icon_map.svg');
 			locationIcon.setAttribute('alt', 'location icon');
 			city.append(locationIcon, input.value);
-            // city.innerHTML = '';
-            // city.textContent = '';
+			// city.innerHTML = '';
+			// city.textContent = '';
+			input.value = '';
 
-            if (data.list[0].main.aqi === 1) {
-                pollutionWord.textContent = "Dobra"
-                pollutionWord.style.color = "lime"
-                pollutionIcon.setAttribute('src', "dist/img/smile.png")
-
-            } else if (data.list[0].main.aqi === 2){
-                pollutionWord.textContent = "Średnia"
-                pollutionWord.style.color = "orange"
-                pollutionIcon.setAttribute('src', "dist/img/confused.png")
-            } else if (data.list[0].main.aqi >= 3){
-                pollutionWord.textContent = "Zła"
-                pollutionWord.style.color = "red"
-                pollutionIcon.setAttribute('src', "dist/img/mask.png")
-            }
-            // console.log(data.list[0].main.aqi);
+			if (data.list[0].main.aqi === 1) {
+				pollutionWord.textContent = 'Dobra';
+				pollutionWord.style.color = 'lime';
+				pollutionIcon.setAttribute('src', 'dist/img/smile.png');
+			} else if (data.list[0].main.aqi === 2) {
+				pollutionWord.textContent = 'Średnia';
+				pollutionWord.style.color = 'orange';
+				pollutionIcon.setAttribute('src', 'dist/img/confused.png');
+			} else if (data.list[0].main.aqi >= 3) {
+				pollutionWord.textContent = 'Zła';
+				pollutionWord.style.color = 'red';
+				pollutionIcon.setAttribute('src', 'dist/img/mask.png');
+			}
+			// console.log(data.list[0].main.aqi);
 		});
 };
 
-const getWeather = (lat,lon) => {
-    const API_LINK3 = "https://api.openweathermap.org/data/2.5/weather?";
-    fetch(API_LINK3 + lat + lon + API_KEY)
-    .then(res => res.json())
-    .then(data => {
-        
-        console.log(data.weather[0])
-        if(data.weather[0].id < 233 ){
-            weatherIcon.setAttribute("src", "dist/img/thunderstorm.png");
-            weatherWord.textContent = "Burza"
-        } else if (data.weather[0].id > 299 && data.weather[0].id < 500){
-            weatherIcon.setAttribute("src", "dist/img/drizzle.png");
-            weatherWord.textContent = "Mżawka"
-        } else if (data.weather[0].id >= 500 && data.weather[0].id < 600){
-            weatherIcon.setAttribute("src", "dist/img/rain.png");
-            weatherWord.textContent = "Deszczowo"
-        } else if (data.weather[0].id >= 600 && data.weather[0].id < 701){
-            weatherIcon.setAttribute("src", "dist/img/ice.png");
-            weatherWord.textContent = "Śnieg"
-        } else if (data.weather[0].id >= 701 && data.weather[0].id < 800){
-            weatherIcon.setAttribute("src", "dist/img/fog.png");
-            weatherWord.textContent = "Mgliśnie"
-        } else if (data.weather[0].id = 800){
-            weatherIcon.setAttribute("src", "dist/img/sun.png");
-            weatherWord.textContent = "Słonecznie"
-        } else {
-            weatherIcon.setAttribute("src", "dist/img/cloud.png");
-            weatherWord.textContent = "Pochmurno"
-        }
-    });
-}
+const getWeather = (lat, lon) => {
+	const API_LINK3 = 'https://api.openweathermap.org/data/2.5/weather?';
+	fetch(API_LINK3 + lat + lon + API_KEY)
+		.then(res => res.json())
+		.then(data => {
+            const mPerS = data.wind.speed
+            console.log(mPerS);
+			const kmPerH = (mPerS * 3.6).toFixed(1)
+            temp.textContent = (data.main.temp).toFixed(1) + " ℃"
+            feel.textContent = (data.main.feels_like).toFixed(1) + " ℃"
+            hum.textContent = data.main.humidity + " %"
+            wind.textContent = kmPerH + " km/h"
+            console.log(wind);
+			if (data.weather[0].id < 233) {
+				weatherIcon.setAttribute('src','dist/img/thunderstorm.png');
+				weatherWord.textContent = 'Burza';
+			} else if (data.weather[0].id > 299 && data.weather[0].id < 500) {
+				weatherIcon.setAttribute('src', 'dist/img/drizzle.png');
+				weatherWord.textContent = 'Mżawka';
+			} else if (data.weather[0].id >= 500 && data.weather[0].id < 600) {
+				weatherIcon.setAttribute('src', 'dist/img/rain.png');
+				weatherWord.textContent = 'Deszczowo';
+			} else if (data.weather[0].id >= 600 && data.weather[0].id < 701) {
+				weatherIcon.setAttribute('src', 'dist/img/ice.png');
+				weatherWord.textContent = 'Śnieg';
+			} else if (data.weather[0].id >= 701 && data.weather[0].id < 800) {
+				weatherIcon.setAttribute('src', 'dist/img/fog.png');
+				weatherWord.textContent = 'Mgliśnie';
+			} else if ((data.weather[0].id = 800)) {
+				weatherIcon.setAttribute('src', 'dist/img/sun.png');
+				weatherWord.textContent = 'Słonecznie';
+			} else {
+				weatherIcon.setAttribute('src', 'dist/img/cloud.png');
+				weatherWord.textContent = 'Pochmurno';
+			}
+		});
+};
+
 
 okBtn.addEventListener('click', getCoordinates, getWeather);
