@@ -23,8 +23,8 @@
 
             <div class="air-weather__air-quality">
                 <!-- <img class="air-weather__img" src="./dist/img/question.png" alt="weather icon"> -->
-                <img class="air-weather__img" src="./dist/img/mask.png" alt="weather icon">
-                <p class="air-weather__title">Jakość powietrza: <span id="air-quality">ZŁA</span></p>
+                <img class="air-weather__img" src="./dist/img/question.png" alt="weather icon">
+                <p class="air-weather__title">Jakość powietrza: <span id="air-quality"></span></p>
             </div>
 
 
@@ -48,7 +48,7 @@
                     <button class="info"><img src="./dist/img/info.svg" alt="info icon"></button>
                     <i class="category-box__card-info"></i>
                     <p class="category-box__card-title">PM10</p>
-                    <p class="category-box__card-data">58 <span>uq/m3</span></p>
+                    <p class="category-box__card-data" id="pm10">58 <span>uq/m3</span></p>
                 </div>
 
                 <div class="category-box__card">
@@ -56,7 +56,7 @@
                    <button class="info"> <img src="./dist/img/info.svg" alt="info icon"></button>
                     <i class="category-box__card-info"></i>
                     <p class="category-box__card-title">PM2.5</p>
-                    <p class="category-box__card-data">58 <span>uq/m3</span></p>
+                    <p class="category-box__card-data" id="pm25">28 <span>uq/m3</span></p>
                 </div>
 
                 <div class="category-box__card category-box__card--third-element">
@@ -64,7 +64,7 @@
                     <button class="info"><img src="./dist/img/info.svg" alt="info icon"></button>
                     <i class="category-box__card-info"></i>
                     <p class="category-box__card-title">Co</p>
-                    <p class="category-box__card-data">58 <span>uq/m3</span></p>
+                    <p class="category-box__card-data" id="co">18 <span>uq/m3</span></p>
                 </div>
 
                 <div class="category-box__card category-box__card--third-element">
@@ -72,13 +72,14 @@
                     <button class="info"><img src="./dist/img/info.svg" alt="info icon"></button>
                     <i class="category-box__card-info"></i>
                     <p class="category-box__card-title">SO2</p>
-                    <p class="category-box__card-data">13<span>uq/m3</span></p>
+                    <p class="category-box__card-data" id="#so2">13<span>uq/m3</span></p>
                 </div>
             </div>
 
 
             <div class="adress">
-                <p class="adress__city"><img class="adress__icon" src="dist/img/icon_map.svg"
+                <p class="adress__city">
+                    <img class="adress__icon" src="dist/img/icon_map.svg"
                         alt="location icon">WROCŁAW
                 </p>
                 <input type="text" placeholder="Podaj nazwę miasta">
@@ -96,7 +97,7 @@
                     <button class="info"><img  src="./dist/img/info.svg" alt="info icon"></button>
                     <i class="category-box__card-info"></i>
                     <p class="category-box__card-title">Temp</p>
-                    <p class="category-box__card-data">20 <span>C</span></p>
+                    <p class="category-box__card-data" id="temp">20 <span>C</span></p>
                 </div>
 
                 <div class="category-box__card">
@@ -104,7 +105,7 @@
                     <button class="info"><img src="./dist/img/info.svg" alt="info icon"></button>
                     <i class="category-box__card-info"></i>
                     <p class="category-box__card-title">Odczuwalna</p>
-                    <p class="category-box__card-data">15 <span>C</span></p>
+                    <p class="category-box__card-data" id="feel">15 <span>C</span></p>
                 </div>
 
                 <div class="category-box__card">
@@ -112,7 +113,7 @@
                    <button class="info"> <img src="./dist/img/info.svg" alt="info icon"></button>
                     <i class="category-box__card-info"></i>
                     <p class="category-box__card-title">Wilgotność</p>
-                    <p class="category-box__card-data">80 <span>%</span></p>
+                    <p class="category-box__card-data" id="hum">80 <span>%</span></p>
                 </div>
 
                 <div class="category-box__card">
@@ -120,7 +121,7 @@
                    <button class="info"> <img src="./dist/img/info.svg" alt="info icon"></button>
                     <i class="category-box__card-info"></i>
                     <p class="category-box__card-title">Wiatr</p>
-                    <p class="category-box__card-data">30 <span>km/h</span></p>
+                    <p class="category-box__card-data" id="wind">30 <span>km/h</span></p>
                 </div>
             </div>
 
