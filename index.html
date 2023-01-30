@@ -44,6 +44,7 @@
                 <div class="category-box__card">
                     <img class="category-box__img" src="./src/img/PM10.svg" alt="PM10 icon">
                     <button class="info"><img src="./dist/img/info.svg" alt="info icon"></button>
+                    <div class="category-box__info-pm10">PM10 to mieszanina zawieszonych w powietrzu cząsteczek, których średnica nie przekracza 10 mikrometrów. Norma średniego stężenia tego pyłu wynosi <span>20 µg/m3</span>.</div>
                     <i class="category-box__card-info"></i>
                     <p class="category-box__card-title">PM10</p>
                     <p class="category-box__card-data" id="pm10">0 <span>uq/m3</span></p>
@@ -52,6 +53,7 @@
                 <div class="category-box__card">
                     <img class="category-box__img" src="./src/img/PM2.5.svg" alt="PM2.5 icon">
                     <button class="info"> <img src="./dist/img/info.svg" alt="info icon"></button>
+                    <div class="category-box__info-pm10">PM2.5 to aerozole atmosferyczne, których średnica nie jest większa niż 2.5 mikrometra. Tego rodzaju pył zawieszony jest uznawany za najgroźniejszy dla zdrowia człowieka. Norma stężenia tego pyłu to <span>10 µg/m3</span>.</div>
                     <i class="category-box__card-info"></i>
                     <p class="category-box__card-title">PM2.5</p>
                     <p class="category-box__card-data" id="pm25">0 <span>uq/m3</span></p>
@@ -61,6 +63,7 @@
                     <img class="category-box__img category-box__img--co" src="./dist/img/carbon-dioxide.svg"
                         alt="Carbon monoxide icon">
                     <button class="info"><img src="./dist/img/info.svg" alt="info icon"></button>
+                    <div class="category-box__info-pm10">Tlenek węgla, potocznie zwany czadem, jest gazem silnie trującym, bezbarwnym i bezwonnym, nieco lżejszym od powietrza, co powoduje, że łatwo się z nim miesza. Najwyższe dopuszczalne dla człowieka stężenie tego gazu to<span> 9000 mg/m3</span>.</div>
                     <i class="category-box__card-info"></i>
                     <p class="category-box__card-title">Co</p>
                     <p class="category-box__card-data" id="co">0 <span>uq/m3</span></p>
@@ -70,6 +73,7 @@
                     <img class="category-box__img category-box__img--so2" src="./dist/img/Triangle.svg"
                         alt="Sulphur dioxide icon">
                     <button class="info"><img src="./dist/img/info.svg" alt="info icon"></button>
+                    <div class="category-box__info-pm10">Dwutlenek siarki jest emitowany do atmosfery podczas spalania paliw zawierających siarkę. Największym źródłem emisji SO2 do atmosfery jest spalanie paliw kopalnych przez elektrownie. Związek ten przyczynia się do powstawania kwaśnych deszczy. Dopuszczalne stężenie dwutlenku siarki w powietrzu wynosi<span> 125 µg/m3</span>.</div>
                     <i class="category-box__card-info"></i>
                     <p class="category-box__card-title">SO2</p>
                     <p class="category-box__card-data" id="so2">0<span> uq/m3</span></p>
@@ -86,6 +90,7 @@
                     </p>
                 </div>
                 <input type="text" placeholder="Podaj nazwę miasta">
+                <p class="city-error"></p>
                 <button class="ok">OK</button>
             </div>
 
@@ -98,7 +103,6 @@
                 <div class="category-box__card">
                     <img class="category-box__img category-box__img--temp" src="./dist/img/thermometer1.svg"
                         alt="temp icon">
-                    <button class="info"><img src="./dist/img/info.svg" alt="info icon"></button>
                     <i class="category-box__card-info"></i>
                     <p class="category-box__card-title">Temp</p>
                     <p class="category-box__card-data" id="temp">0 <span>C</span></p>
@@ -107,7 +111,6 @@
                 <div class="category-box__card">
                     <img class="category-box__img category-box__img--real" src="./dist/img/realfeel.svg"
                         alt="feel temp icon">
-                    <button class="info"><img src="./dist/img/info.svg" alt="info icon"></button>
                     <i class="category-box__card-info"></i>
                     <p class="category-box__card-title">Odczuwalna</p>
                     <p class="category-box__card-data" id="feel">0 <span>C</span></p>
@@ -115,7 +118,7 @@
 
                 <div class="category-box__card">
                     <img class="category-box__img" src="./dist/img/humidity.svg" alt="humidity icon">
-                    <button class="info"> <img src="./dist/img/info.svg" alt="info icon"></button>
+
                     <i class="category-box__card-info"></i>
                     <p class="category-box__card-title">Wilgotność</p>
                     <p class="category-box__card-data" id="hum">0 <span>%</span></p>
@@ -124,22 +127,13 @@
                 <div class="category-box__card">
                     <img class="category-box__img category-box__img--wind" src="./dist/img/Wind.svg"
                         alt="wind speed icon">
-                    <button class="info"> <img src="./dist/img/info.svg" alt="info icon"></button>
+
                     <i class="category-box__card-info"></i>
                     <p class="category-box__card-title">Wiatr</p>
                     <p class="category-box__card-data" id="wind">0 <span>km/h</span></p>
                 </div>
             </div>
 
-        </div>
-
-
-        <div class="bird-items">
-
-            <img src="./src/img/Brunch.svg" alt="brunch">
-            <img src="./src/img/Bird.png" alt="canary">
-            <img src="./src/img/brird'stext.svg" alt="speech bubble">
-            <p class="bubble-text">Lepiej zostań w domu!</p>
         </div>
 
     </div>

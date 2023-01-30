@@ -1,6 +1,9 @@
 const okBtn = document.querySelector('.ok');
 const input = document.querySelector('input');
 
+const pm10Info = document.querySelector('.category-box__info-pm10');
+const infoIcon = document.querySelector('.info')
+
 // Pollution=========
 const pollutionIcon = document.querySelector('.air-weather__img');
 const pollutionWord = document.querySelector('#air-quality');
@@ -20,6 +23,7 @@ const hum = document.querySelector('#hum');
 const wind = document.querySelector('#wind');
 
 const cityName = document.querySelector('.adress__city');
+const cityerror = document.querySelector('.city-error');
 
 const API_LINK = 'http://api.openweathermap.org/geo/1.0/direct?q=';
 const API_KEY = '&appid=b005763a5f5701376b641f6d866e7e64&units=metric';
@@ -35,8 +39,6 @@ const getCoordinates = () => {
 	co.parentElement.style.backgroundColor = 'rgba(213, 212, 212, 0.205)';
 	so2.parentElement.style.backgroundColor = 'rgba(213, 212, 212, 0.205)';
 
-
-
 	fetch(API_LINK + city + API_KEY)
 		.then(res => res.json())
 		.then(data => {
@@ -45,7 +47,11 @@ const getCoordinates = () => {
 			getAirPollution(lat, lon);
 			getWeather(lat, lon);
 		})
-		.catch(err => console.log('error', err));
+		.catch(() => {
+			cityerror.textContent = "Wpisz poprawną nazwę miasta!";
+			input.value = "";
+			input.setAttribute('placeholder', 'Podaj nazwę miasta');
+		});
 };
 
 const getAirPollution = (lat, lon) => {
@@ -103,6 +109,8 @@ const getWeather = (lat, lon) => {
 				cityName.textContent = input.value.toUpperCase();
 				input.setAttribute('placeholder', 'Podaj nazwę miasta');
 				input.value = ""
+			cityerror.textContent = "";
+
 			}
 			const mPerS = data.wind.speed;
 			const kmPerH = (mPerS * 3.6).toFixed(1);
@@ -142,5 +150,18 @@ const pressEnter = e => {
 	}
 };
 
+const showInfo = () => {
+	pm10Info.style.display = "block";
+	console.log('ok');
+}
+
+const closeInfo = () => {
+	pm10Info.style.display = "none";
+	console.log('ok');
+}
+
+
+infoIcon.addEventListener('mouseenter', showInfo);
+infoIcon.addEventListener('mouseleave', closeInfo);
 okBtn.addEventListener('click', getCoordinates);
 input.addEventListener('keyup', pressEnter);
