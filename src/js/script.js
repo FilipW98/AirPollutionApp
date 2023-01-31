@@ -2,7 +2,16 @@ const okBtn = document.querySelector('.ok');
 const input = document.querySelector('input');
 
 const pm10Info = document.querySelector('.category-box__info-pm10');
-const infoIcon = document.querySelector('.info')
+const pm25Info = document.querySelector('.category-box__info-pm25');
+const coInfo = document.querySelector('.category-box__info-co');
+const so2Info = document.querySelector('.category-box__info-so2');
+const infoIcons = document.querySelectorAll('.info');
+const infoCards = document.querySelectorAll('.category-box__info');
+
+const info1 = document.querySelector('#one');
+const info2 = document.querySelector('#two');
+const info3 = document.querySelector('#three');
+const info4 = document.querySelector('#four');
 
 // Pollution=========
 const pollutionIcon = document.querySelector('.air-weather__img');
@@ -48,25 +57,21 @@ const getCoordinates = () => {
 			getWeather(lat, lon);
 		})
 		.catch(() => {
-			cityerror.textContent = "Wpisz poprawną nazwę miasta!";
-			input.value = "";
+			cityerror.textContent = 'Wpisz poprawną nazwę miasta!';
+			input.value = '';
 			input.setAttribute('placeholder', 'Podaj nazwę miasta');
 		});
 };
 
 const getAirPollution = (lat, lon) => {
-	
 	const API_LINK2 = 'http://api.openweathermap.org/data/2.5/air_pollution?';
 	fetch(API_LINK2 + lat + lon + API_KEY)
 		.then(res => res.json())
 		.then(data => {
-		
 			pm10.textContent = data.list[0].components.pm10.toFixed(1) + ' uq/m3';
 			pm25.textContent = data.list[0].components.pm2_5.toFixed(1) + ' uq/m3';
 			co.textContent = data.list[0].components.co.toFixed(1) + ' uq/m3';
 			so2.textContent = data.list[0].components.so2.toFixed(1) + ' uq/m3';
-
-			
 
 			if (data.list[0].main.aqi === 1) {
 				pollutionWord.textContent = 'Dobra';
@@ -104,13 +109,12 @@ const getWeather = (lat, lon) => {
 		.then(data => {
 			if (input.value === '') {
 				input.setAttribute('placeholder', 'Musisz podać nazwę miasta');
-				cityName.textContent = "WROCŁAW"
+				cityName.textContent = 'WROCŁAW';
 			} else {
 				cityName.textContent = input.value.toUpperCase();
 				input.setAttribute('placeholder', 'Podaj nazwę miasta');
-				input.value = ""
-			cityerror.textContent = "";
-
+				input.value = '';
+				cityerror.textContent = '';
 			}
 			const mPerS = data.wind.speed;
 			const kmPerH = (mPerS * 3.6).toFixed(1);
@@ -150,18 +154,28 @@ const pressEnter = e => {
 	}
 };
 
-const showInfo = () => {
-	pm10Info.style.display = "block";
-	console.log('ok');
+
+
+
+
+
+for (let i = 0; i < infoIcons.length; i++) {
+	infoIcons[i].addEventListener('click', function () {
+		infoCards[i].style.display = "block";
+	});
 }
+
+// for (let i = 0; i < array.length; i++) {
+// 	const element = array[i];
+	
+// }
 
 const closeInfo = () => {
-	pm10Info.style.display = "none";
-	console.log('ok');
-}
+	pm10Info.style.display = 'none';
+};
 
+// infoIcons.addEventListener('mouseenter', showInfo);
+// infoIcons[0].addEventListener('mouseleave', closeInfo);
 
-infoIcon.addEventListener('mouseenter', showInfo);
-infoIcon.addEventListener('mouseleave', closeInfo);
 okBtn.addEventListener('click', getCoordinates);
 input.addEventListener('keyup', pressEnter);
