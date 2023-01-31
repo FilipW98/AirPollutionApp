@@ -34,12 +34,10 @@ const wind = document.querySelector('#wind');
 const cityName = document.querySelector('.adress__city');
 const cityerror = document.querySelector('.city-error');
 
-const API_LINK = 'http://api.openweathermap.org/geo/1.0/direct?q=';
+const API_LINK = 'https://api.openweathermap.org/geo/1.0/direct?q=';
 const API_KEY = '&appid=b005763a5f5701376b641f6d866e7e64&units=metric';
 
-// const API_LINK = "https://api.openaq.org/v1/measurements?"
-// const API_KEY2 = "&key=01c3c848e13647ee97e102809ba97b43";
-// const API_LINK3 = "https://api.openweathermap.org/data/2.5/weather?"
+
 
 const getCoordinates = () => {
 	const city = input.value || 'Wrocław';
@@ -64,7 +62,7 @@ const getCoordinates = () => {
 };
 
 const getAirPollution = (lat, lon) => {
-	const API_LINK2 = 'http://api.openweathermap.org/data/2.5/air_pollution?';
+	const API_LINK2 = 'https://api.openweathermap.org/data/2.5/air_pollution?';
 	fetch(API_LINK2 + lat + lon + API_KEY)
 		.then(res => res.json())
 		.then(data => {
@@ -104,9 +102,11 @@ const getAirPollution = (lat, lon) => {
 
 const getWeather = (lat, lon) => {
 	const API_LINK3 = 'https://api.openweathermap.org/data/2.5/weather?';
+
 	fetch(API_LINK3 + lat + lon + API_KEY)
 		.then(res => res.json())
 		.then(data => {
+			console.log(data);
 			if (input.value === '') {
 				input.setAttribute('placeholder', 'Musisz podać nazwę miasta');
 				cityName.textContent = 'WROCŁAW';
@@ -139,7 +139,7 @@ const getWeather = (lat, lon) => {
 				weatherWord.textContent = 'Mgliśnie';
 			} else if ((data.weather[0].id = 800)) {
 				weatherIcon.setAttribute('src', 'dist/img/sun.png');
-				weatherWord.textContent = 'Słonecznie';
+				weatherWord.textContent = 'Czyste niebo';
 			} else {
 				weatherIcon.setAttribute('src', 'dist/img/cloud.png');
 				weatherWord.textContent = 'Pochmurno';
@@ -147,35 +147,28 @@ const getWeather = (lat, lon) => {
 		});
 };
 
+
+
+
+for (let i = 0; i < infoIcons.length; i++) {
+	infoIcons[i].addEventListener('mouseenter', function () {
+		infoCards[i].style.display = "block";
+	});
+}
+
+for (let i = 0; i < infoIcons.length; i++) {
+	infoIcons[i].addEventListener('mouseleave', function () {
+		infoCards[i].style.display = "none";
+	});
+
+}
+
 const pressEnter = e => {
 	e.preventDefault();
 	if (e.keyCode === 13) {
 		getCoordinates();
 	}
 };
-
-
-
-
-
-
-for (let i = 0; i < infoIcons.length; i++) {
-	infoIcons[i].addEventListener('click', function () {
-		infoCards[i].style.display = "block";
-	});
-}
-
-// for (let i = 0; i < array.length; i++) {
-// 	const element = array[i];
-	
-// }
-
-const closeInfo = () => {
-	pm10Info.style.display = 'none';
-};
-
-// infoIcons.addEventListener('mouseenter', showInfo);
-// infoIcons[0].addEventListener('mouseleave', closeInfo);
 
 okBtn.addEventListener('click', getCoordinates);
 input.addEventListener('keyup', pressEnter);

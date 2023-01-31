@@ -149,11 +149,10 @@ h1 {
 
 		.category-box__info {
 			position: absolute;
-			width: 175px;
-			height: 175px;
 			background-color: rgba(70, 60, 60, 0.973);
-			top: -165px;
-			right: -165px;
+			top: -185px;
+			right: -220px;
+			margin-left: 7.2em;
 			font-size: 1.4rem;
 			padding: 0.7em;
 			border-radius: 10px;
@@ -162,7 +161,21 @@ h1 {
 
 			span{
 				font-weight: bold;
+				color: tomato;
 			}
+		}
+
+		.category-box__info--pm10{
+			top: -122px;
+		}
+		.category-box__info--pm25{
+			top: -140px;
+		}
+		.category-box__info--co{
+			top: -175px;
+		}
+		.category-box__info--so2{
+			top: -210px;
 		}
 
 		.category-box__img {
@@ -261,6 +274,7 @@ h1 {
 	}
 	.city-error {
 		margin: 0.5em 0em;
+		color: tomato;
 	}
 }
 .bird-items {
