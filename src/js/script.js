@@ -8,15 +8,9 @@ const so2Info = document.querySelector('.category-box__info-so2');
 const infoIcons = document.querySelectorAll('.info');
 const infoCards = document.querySelectorAll('.category-box__info');
 
-const info1 = document.querySelector('#one');
-const info2 = document.querySelector('#two');
-const info3 = document.querySelector('#three');
-const info4 = document.querySelector('#four');
-
 // Pollution=========
 const pollutionIcon = document.querySelector('.air-weather__img');
 const pollutionWord = document.querySelector('#air-quality');
-
 const pm10 = document.querySelector('#pm10');
 const pm25 = document.querySelector('#pm25');
 const co = document.querySelector('#co');
@@ -39,11 +33,6 @@ const API_KEY = '&appid=b005763a5f5701376b641f6d866e7e64&units=metric';
 
 const getCoordinates = () => {
 	const city = input.value || 'Wrocław';
-	pm25.parentElement.style.backgroundColor = 'rgba(213, 212, 212, 0.205)';
-	pm10.parentElement.style.backgroundColor = 'rgba(213, 212, 212, 0.205)';
-	co.parentElement.style.backgroundColor = 'rgba(213, 212, 212, 0.205)';
-	so2.parentElement.style.backgroundColor = 'rgba(213, 212, 212, 0.205)';
-
 	fetch(API_LINK + city + API_KEY)
 		.then(res => res.json())
 		.then(data => {
@@ -55,7 +44,7 @@ const getCoordinates = () => {
 		.catch(() => {
 			cityerror.textContent = 'Wpisz poprawną nazwę miasta!';
 			input.value = '';
-			input.setAttribute('placeholder', 'Podaj nazwę miasta');
+			// input.setAttribute('placeholder', 'Podaj nazwę miasta');
 		});
 };
 
@@ -96,7 +85,7 @@ const getAirPollution = (lat, lon) => {
 			if (data.list[0].components.pm10 >= 20) {
 				pm10.parentElement.style.backgroundColor = 'rgba(207, 18, 49, 0.664)';
 			}
-			if (data.list[0].components.co >= 15000) {
+			if (data.list[0].components.co >= 9000) {
 				co.parentElement.style.backgroundColor = 'rgba(207, 18, 49, 0.664)';
 			}
 			if (data.list[0].components.so2 >= 125) {
@@ -110,6 +99,7 @@ const getWeather = (lat, lon) => {
 	fetch(API_LINK3 + lat + lon + API_KEY)
 		.then(res => res.json())
 		.then(data => {
+
 			if (input.value === '') {
 				input.setAttribute('placeholder', 'Musisz podać nazwę miasta');
 				cityName.textContent = 'WROCŁAW';
@@ -120,7 +110,6 @@ const getWeather = (lat, lon) => {
 				cityerror.textContent = '';
 			}
 			const kmPerH = (data.wind.speed * 3.6).toFixed(1);
-
 			temp.textContent = data.main.temp.toFixed(1) + ' ℃';
 			feel.textContent = data.main.feels_like.toFixed(1) + ' ℃';
 			hum.textContent = data.main.humidity + ' %';
