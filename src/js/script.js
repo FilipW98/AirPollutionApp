@@ -37,8 +37,6 @@ const cityerror = document.querySelector('.city-error');
 const API_LINK = 'https://api.openweathermap.org/geo/1.0/direct?q=';
 const API_KEY = '&appid=b005763a5f5701376b641f6d866e7e64&units=metric';
 
-
-
 const getCoordinates = () => {
 	const city = input.value || 'Wrocław';
 	pm25.parentElement.style.backgroundColor = 'rgba(213, 212, 212, 0.205)';
@@ -66,10 +64,17 @@ const getAirPollution = (lat, lon) => {
 	fetch(API_LINK2 + lat + lon + API_KEY)
 		.then(res => res.json())
 		.then(data => {
-			pm10.textContent = data.list[0].components.pm10.toFixed(1) + ' uq/m3';
-			pm25.textContent = data.list[0].components.pm2_5.toFixed(1) + ' uq/m3';
-			co.textContent = data.list[0].components.co.toFixed(1) + ' uq/m3';
-			so2.textContent = data.list[0].components.so2.toFixed(1) + ' uq/m3';
+			// pm10.textContent = data.list[0].components.pm10.toFixed(1) + ' uq/m3';
+			// pm25.textContent = data.list[0].components.pm2_5.toFixed(1) + ' uq/m3';
+			// co.textContent = data.list[0].components.co.toFixed(1) + ' uq/m3';
+			// so2.textContent = data.list[0].components.so2.toFixed(1) + ' uq/m3';
+			const myUnionsArr = [pm10, pm25, co, so2];
+			const airComponent = data.list[0].components;
+			const unionsArr = [airComponent.pm10,airComponent.pm2_5,airComponent.co,airComponent.so2,];
+
+			for (let i = 0; i < myUnionsArr.length; i++) {
+				myUnionsArr[i].textContent = unionsArr[i].toFixed(1) + ' uq/m3';
+			}
 
 			if (data.list[0].main.aqi === 1) {
 				pollutionWord.textContent = 'Dobra';
@@ -102,12 +107,9 @@ const getAirPollution = (lat, lon) => {
 
 const getWeather = (lat, lon) => {
 	const API_LINK3 = 'https://api.openweathermap.org/data/2.5/weather?';
-
 	fetch(API_LINK3 + lat + lon + API_KEY)
 		.then(res => res.json())
 		.then(data => {
-			console.log(data.weather[0].icon);
-			console.log(data);
 			if (input.value === '') {
 				input.setAttribute('placeholder', 'Musisz podać nazwę miasta');
 				cityName.textContent = 'WROCŁAW';
@@ -117,58 +119,54 @@ const getWeather = (lat, lon) => {
 				input.value = '';
 				cityerror.textContent = '';
 			}
-			const mPerS = data.wind.speed;
-			const kmPerH = (mPerS * 3.6).toFixed(1);
+			const kmPerH = (data.wind.speed * 3.6).toFixed(1);
+
 			temp.textContent = data.main.temp.toFixed(1) + ' ℃';
 			feel.textContent = data.main.feels_like.toFixed(1) + ' ℃';
 			hum.textContent = data.main.humidity + ' %';
 			wind.textContent = kmPerH + ' km/h';
 
-			if (data.weather[0].icon === "11d" ) {
+			if (data.weather[0].icon === '11d') {
 				weatherIcon.setAttribute('src', 'dist/img/thunderstorm.png');
 				weatherWord.textContent = 'Burza';
-			} else if (data.weather[0].icon === "09d") {
+			} else if (data.weather[0].icon === '09d') {
 				weatherIcon.setAttribute('src', 'dist/img/drizzle.png');
 				weatherWord.textContent = 'Mżawka';
-			} else if (data.weather[0].icon === "10d" || data.weather[0].icon === "09d" || data.weather[0].icon === "09n") {
+			} else if (data.weather[0].icon === '10d' || data.weather[0].icon === '09d' || data.weather[0].icon === '09n') {
 				weatherIcon.setAttribute('src', 'dist/img/rain.png');
 				weatherWord.textContent = 'Deszczowo';
-			} else if (data.weather[0].icon === "13d") {
+			} else if (data.weather[0].icon === '13d') {
 				weatherIcon.setAttribute('src', 'dist/img/ice.png');
 				weatherWord.textContent = 'Śnieg';
-			} else if (data.weather[0].icon === "50d") {
+			} else if (data.weather[0].icon === '50d') {
 				weatherIcon.setAttribute('src', 'dist/img/fog.png');
 				weatherWord.textContent = 'Mgliście';
-			} else if ((data.weather[0].icon === " 01d")) {
+			} else if (data.weather[0].icon === ' 01d') {
 				weatherIcon.setAttribute('src', 'dist/img/sun.png');
 				weatherWord.textContent = 'Słonecznie';
-			} else if (data.weather[0].icon === " 01n") {
+			} else if (data.weather[0].icon === ' 01n') {
 				weatherIcon.setAttribute('src', 'dist/img/moon.png');
 				weatherWord.textContent = 'Bezchmurnie';
-			} else if (data.weather[0].icon === "02d" || data.weather[0].icon === " 03d" || data.weather[0].icon === "04d"){
+			} else if (data.weather[0].icon === '02d' || data.weather[0].icon === ' 03d' || data.weather[0].icon === '04d') {
 				weatherIcon.setAttribute('src', 'dist/img/cloud.png');
 				weatherWord.textContent = 'Pochmurno';
-			} else if (data.weather[0].icon === "02n" || data.weather[0].icon === "03n" || data.weather[0].icon === "04n"){
+			} else if (data.weather[0].icon === '02n' || data.weather[0].icon === '03n' || data.weather[0].icon === '04n') {
 				weatherIcon.setAttribute('src', 'dist/img/nightCloud.png');
 				weatherWord.textContent = 'Pochmurno';
 			}
 		});
 };
 
-
-
-
 for (let i = 0; i < infoIcons.length; i++) {
 	infoIcons[i].addEventListener('mouseenter', function () {
-		infoCards[i].style.display = "block";
+		infoCards[i].style.display = 'block';
 	});
 }
 
 for (let i = 0; i < infoIcons.length; i++) {
 	infoIcons[i].addEventListener('mouseleave', function () {
-		infoCards[i].style.display = "none";
+		infoCards[i].style.display = 'none';
 	});
-
 }
 
 const pressEnter = e => {
