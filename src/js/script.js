@@ -114,7 +114,7 @@ const getWeather = (lat, lon) => {
 			feel.textContent = data.main.feels_like.toFixed(1) + ' ℃';
 			hum.textContent = data.main.humidity + ' %';
 			wind.textContent = kmPerH + ' km/h';
-
+			console.log(data.weather[0]);
 			if (data.weather[0].icon === '11d') {
 				weatherIcon.setAttribute('src', 'dist/img/thunderstorm.png');
 				weatherWord.textContent = 'Burza';
@@ -130,13 +130,13 @@ const getWeather = (lat, lon) => {
 			} else if (data.weather[0].icon === '50d') {
 				weatherIcon.setAttribute('src', 'dist/img/fog.png');
 				weatherWord.textContent = 'Mgliście';
-			} else if (data.weather[0].icon === ' 01d') {
+			} else if (data.weather[0].icon === '01d') {
 				weatherIcon.setAttribute('src', 'dist/img/sun.png');
 				weatherWord.textContent = 'Słonecznie';
-			} else if (data.weather[0].icon === ' 01n') {
+			} else if (data.weather[0].icon === '01n') {
 				weatherIcon.setAttribute('src', 'dist/img/moon.png');
 				weatherWord.textContent = 'Bezchmurnie';
-			} else if (data.weather[0].icon === '02d' || data.weather[0].icon === ' 03d' || data.weather[0].icon === '04d') {
+			} else if (data.weather[0].icon === '02d' || data.weather[0].icon === '03d' || data.weather[0].icon === '04d') {
 				weatherIcon.setAttribute('src', 'dist/img/cloud.png');
 				weatherWord.textContent = 'Pochmurno';
 			} else if (data.weather[0].icon === '02n' || data.weather[0].icon === '03n' || data.weather[0].icon === '04n') {
