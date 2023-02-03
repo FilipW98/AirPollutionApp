@@ -1,12 +1,12 @@
 const okBtn = document.querySelector('.ok');
 const input = document.querySelector('input');
 
-const pm10Info = document.querySelector('.category-box__info-pm10');
-const pm25Info = document.querySelector('.category-box__info-pm25');
-const coInfo = document.querySelector('.category-box__info-co');
-const so2Info = document.querySelector('.category-box__info-so2');
+const pm10Info = document.querySelector('.category-box__card-info-pm10');
+const pm25Info = document.querySelector('.category-box__card-info-pm25');
+const coInfo = document.querySelector('.category-box__card-info-co');
+const so2Info = document.querySelector('.category-box__card-info-so2');
 const infoIcons = document.querySelectorAll('.info');
-const infoCards = document.querySelectorAll('.category-box__info');
+const infoCards = document.querySelectorAll('.category-box__card-info');
 
 // Pollution=========
 const pollutionIcon = document.querySelector('.air-weather__img');

@@ -13,17 +13,15 @@ html {
 body {
 	display: flex;
 	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
 	margin-top: 7em;
 	font-family: 'Inika', sans-serif;
 	font-size: 1.6rem;
 	background-color: #333;
 	color: rgb(224, 220, 220);
 
-	width: 100%;
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	background-size: 300% 300%;
 	background-image: linear-gradient(
 		-45deg,
@@ -33,17 +31,17 @@ body {
 		rgba(255, 53, 127, 0.596) 100%
 	);
 	animation: AnimateBG 20s ease infinite;
+}
 
-	@keyframes AnimateBG {
-		0% {
-			background-position: 0% 50%;
-		}
-		50% {
-			background-position: 100% 50%;
-		}
-		100% {
-			background-position: 0% 50%;
-		}
+@keyframes AnimateBG {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
 	}
 }
 
@@ -84,17 +82,17 @@ h1 {
 	justify-content: space-between;
 	margin-top: 3em;
 
-	&__img {
-		width: 100px;
-		height: 100px;
-		margin-left: 6em;
-	}
-
+	
 	&__air-quality {
 		margin-left: 2em;
 		margin-top: 1em;
+		&-img {
+			width: 100px;
+			height: 100px;
+			margin-left: 6em;
+		}
 
-		.air-weather__title {
+		&-title {
 			margin-top: 0.5em;
 			margin-left: 2.7em;
 			font-size: 2rem;
@@ -103,6 +101,20 @@ h1 {
 		#air-quality {
 			font-size: 3rem;
 		}
+	}
+}
+
+
+.weather-type {
+	margin-right: 6.5em;
+	&__img {
+		width: 150px;
+		height: 120px;
+	}
+	&__title {
+		margin-top: 0.5em;
+		font-size: 2.5rem;
+		text-align: center;
 	}
 }
 
@@ -128,11 +140,11 @@ h1 {
 	}
 	&__card {
 		position: relative;
+		text-align: center;
 		width: 43%;
 		margin: 0.5em;
-		padding: 0.5em;
 		margin-top: 0.7em;
-		text-align: center;
+		padding: 0.5em;
 		border-radius: 10px;
 		box-shadow: 2px 2px 10px rgba(26, 25, 25, 0.959);
 		background-color: rgba(213, 212, 212, 0.205);
@@ -147,7 +159,7 @@ h1 {
 			height: 30px;
 		}
 
-		.category-box__info {
+		&-info {
 			position: absolute;
 			background-color: rgba(70, 60, 60, 0.973);
 			top: -185px;
@@ -159,30 +171,30 @@ h1 {
 			z-index: 1;
 			display: none;
 
-			span{
+			span {
 				font-weight: bold;
 				color: tomato;
 			}
 		}
 
-		.category-box__info--pm10{
+		&-info--pm10 {
 			top: -122px;
 		}
-		.category-box__info--pm25{
+		&-info--pm25 {
 			top: -140px;
 		}
-		.category-box__info--co{
+		&-info--co {
 			top: -175px;
 		}
-		.category-box__info--so2{
+		&-info--so2 {
 			top: -210px;
 		}
 
-		.category-box__img {
+		&-img {
 			width: 25px;
 			height: 30px;
 		}
-		.category-box__img--temp {
+		&-img--temp {
 			width: 16px;
 		}
 		.category-box__img--co {
@@ -210,18 +222,6 @@ h1 {
 	margin-right: -2em;
 }
 
-.weather-type {
-	margin-right: 6.5em;
-	&__img {
-		width: 150px;
-		height: 120px;
-	}
-	&__title {
-		margin-top: 0.5em;
-		font-size: 2.5rem;
-		text-align: center;
-	}
-}
 
 .adress {
 	display: flex;
