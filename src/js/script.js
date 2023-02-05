@@ -1,15 +1,15 @@
 const okBtn = document.querySelector('.ok');
 const input = document.querySelector('input');
 
-const pm10Info = document.querySelector('.category-box__card-info-pm10');
-const pm25Info = document.querySelector('.category-box__card-info-pm25');
-const coInfo = document.querySelector('.category-box__card-info-co');
-const so2Info = document.querySelector('.category-box__card-info-so2');
+// const pm10Info = document.querySelector('.category-box__card-info--pm10');
+// const pm25Info = document.querySelector('.category-box__card-info--pm25');
+// const coInfo = document.querySelector('.category-box__card-info-co');
+// const so2Info = document.querySelector('.category-box__card-info-so2');
 const infoIcons = document.querySelectorAll('.info');
 const infoCards = document.querySelectorAll('.category-box__card-info');
 
 // Pollution=========
-const pollutionIcon = document.querySelector('.air-weather__img');
+const pollutionIcon = document.querySelector('.air-weather__air-quality-img');
 const pollutionWord = document.querySelector('#air-quality');
 const pm10 = document.querySelector('#pm10');
 const pm25 = document.querySelector('#pm25');
@@ -25,7 +25,7 @@ const feel = document.querySelector('#feel');
 const hum = document.querySelector('#hum');
 const wind = document.querySelector('#wind');
 
-const cityName = document.querySelector('.adress__city');
+const cityName = document.querySelector('.adress__name-city');
 const cityerror = document.querySelector('.city-error');
 
 const API_LINK = 'https://api.openweathermap.org/geo/1.0/direct?q=';
@@ -64,7 +64,6 @@ const getAirPollution = (lat, lon) => {
 			for (let i = 0; i < myUnionsArr.length; i++) {
 				myUnionsArr[i].textContent = unionsArr[i].toFixed(1) + ' uq/m3';
 			}
-
 			if (data.list[0].main.aqi === 1) {
 				pollutionWord.textContent = 'Dobra';
 				pollutionWord.style.color = 'lime';
@@ -78,7 +77,6 @@ const getAirPollution = (lat, lon) => {
 				pollutionWord.style.color = 'red';
 				pollutionIcon.setAttribute('src', 'dist/img/mask.png');
 			}
-
 			if (data.list[0].components.pm2_5 >= 10) {
 				pm25.parentElement.style.backgroundColor = 'rgba(207, 18, 49, 0.664)';
 			}
@@ -114,7 +112,6 @@ const getWeather = (lat, lon) => {
 			feel.textContent = data.main.feels_like.toFixed(1) + ' ℃';
 			hum.textContent = data.main.humidity + ' %';
 			wind.textContent = kmPerH + ' km/h';
-			console.log(data.weather[0]);
 			if (data.weather[0].icon === '11d') {
 				weatherIcon.setAttribute('src', 'dist/img/thunderstorm.png');
 				weatherWord.textContent = 'Burza';
@@ -145,6 +142,7 @@ const getWeather = (lat, lon) => {
 			}
 		});
 };
+
 
 for (let i = 0; i < infoIcons.length; i++) {
 	infoIcons[i].addEventListener('mouseenter', function () {
