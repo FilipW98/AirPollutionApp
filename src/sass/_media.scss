@@ -1,0 +1,142 @@
+@media (max-width: 810px) {
+	body {
+		.app {
+			max-width: 740px;
+			// height: 687px;
+            margin-top: 13em;
+			.vertical-line {
+				display: none;
+			}
+			h1 {
+				font-size: 2.8rem;
+			}
+			.air-weather {
+				margin-top: 2em;
+				.air-weather__air-quality-img {
+					width: 70px;
+					height: 70px;
+				}
+				.weather-type {
+					margin-left: 0;
+				}
+			}
+
+			.weather-type__img {
+				width: 100px;
+				height: 100px;
+			}
+
+			.statisctics-box {
+				// position: relative;
+				margin-top: 2em;
+				padding-bottom: 2em;
+				.category-box {
+					width: 100%;
+					align-self: flex-start;
+				}
+
+				.weather-stats {
+					display: flex;
+				}
+				.category-box__card {
+					width: 36%;
+				}
+				.adress__name-icon {
+					margin: 0;
+				}
+			}
+
+			.adress {
+				position: absolute;
+				bottom: 10px;
+				align-items: center;
+				margin: 0;
+
+				.adress__name {
+					align-self: flex-start;
+				}
+				input {
+					margin-top: 0.5em;
+				}
+				.ok {
+					position: absolute;
+					right: -60px;
+					bottom: 15px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 576px) {
+	body {
+		.app {
+            width: 90%;
+            top: 6em;
+
+			.air-weather {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                .air-weather__air-quality-title{
+                    margin-top: 1em;
+                    font-size: 2.3rem;
+                }
+
+				.weather-type {
+                    margin-top: 2em;
+				}
+			}
+
+			.weather-type__img {
+                height: 95px;
+                width: 130px;
+			}
+			.weather-type__title {
+                margin-top: 1em;
+                // font-size: 2.2rem;
+                height: 80px;
+			}
+
+			.statisctics-box {
+                order: 3;
+				flex-direction: column;
+                font-size: 1.7rem;
+                margin-top: 0em;
+                .pollution{
+                    order: 1;
+                }
+				.category-box {
+					.category-box__title {
+						width: 100%;
+						h2 {
+							width: 100%;
+						}
+					}
+				}
+
+				.weather-stats {
+                    order: 3;
+				}
+				.category-box__card {
+					width: 32%;
+				}
+				.adress__name-icon {
+				}
+			}
+
+			.adress {
+                order: 0;
+                position: relative;
+                margin: 1.5em auto;
+                justify-content: center;
+                align-items: center;
+
+				.ok {
+                    position:static;
+                    width: 30%;
+				}
+			}
+		}
+	}
+}
