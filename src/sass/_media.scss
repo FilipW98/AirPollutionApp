@@ -100,8 +100,6 @@
 			}
 
 			.statisctics-box {
-				// flex-wrap: wrap;
-				// align-content: baseline;
 				width: 78%;
 				margin: auto;
                 // order: 3;
@@ -111,7 +109,6 @@
 				padding-bottom: 0;
                 .pollution{
                     order: 1;
-					// max-width: 80%;
 					margin: auto;
 				
                 }
@@ -128,11 +125,8 @@
                     order: 4;
 					margin: auto;
 					margin-top: 1em;
-					// width: 80%;
 				}
 				.category-box__card {
-					// min-width: 107px;
-					// max-width: 137px;
 					width: 107px;
 				}
 			}
