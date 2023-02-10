@@ -106,34 +106,49 @@ const getWeather = (lat, lon) => {
 			feel.textContent = data.main.feels_like.toFixed(1) + ' ℃';
 			hum.textContent = data.main.humidity + ' %';
 			wind.textContent = kmPerH + ' km/h';
-			if (data.weather[0].icon === '11d') {
-				weatherIcon.setAttribute('src', 'dist/img/thunderstorm.png');
-				weatherWord.textContent = 'Burza';
-			} else if (data.weather[0].icon === '09d') {
-				weatherIcon.setAttribute('src', 'dist/img/drizzle.png');
-				weatherWord.textContent = 'Mżawka';
-			} else if (data.weather[0].icon === '10d' || data.weather[0].icon === '09d' || data.weather[0].icon === '09n') {
-				weatherIcon.setAttribute('src', 'dist/img/rain.png');
-				weatherWord.textContent = 'Deszczowo';
-			} else if (data.weather[0].icon === '13d') {
-				weatherIcon.setAttribute('src', 'dist/img/ice.png');
-				weatherWord.textContent = 'Śnieg';
-			} else if (data.weather[0].icon === '50d') {
-				weatherIcon.setAttribute('src', 'dist/img/fog.png');
-				weatherWord.textContent = 'Mgliście';
-			} else if (data.weather[0].icon === '01d') {
-				weatherIcon.setAttribute('src', 'dist/img/sun.png');
-				weatherWord.textContent = 'Słonecznie';
-			} else if (data.weather[0].icon === '01n') {
-				weatherIcon.setAttribute('src', 'dist/img/moon.png');
-				weatherWord.textContent = 'Bezchmurnie';
-			} else if (data.weather[0].icon === '02d' || data.weather[0].icon === '03d' || data.weather[0].icon === '04d') {
-				weatherIcon.setAttribute('src', 'dist/img/cloud.png');
-				weatherWord.textContent = 'Pochmurno';
-			} else if (data.weather[0].icon === '02n' || data.weather[0].icon === '03n' || data.weather[0].icon === '04n') {
-				weatherIcon.setAttribute('src', 'dist/img/nightCloud.png');
-				weatherWord.textContent = 'Pochmurno';
-			}
+
+			console.log(data.weather[0].icon);
+
+			switch (data.weather[0].icon) {
+				case '11d':
+				  weatherIcon.setAttribute('src', 'dist/img/thunderstorm.png');
+				  weatherWord.textContent = 'Burza';
+				  break;
+				case '09d':
+				case '10d':
+				case '09n':
+				  weatherIcon.setAttribute('src', 'dist/img/rain.png');
+				  weatherWord.textContent = 'Deszczowo';
+				  break;
+				case '13d':
+				  weatherIcon.setAttribute('src', 'dist/img/ice.png');
+				  weatherWord.textContent = 'Śnieg';
+				  break;
+				case '50d':
+				  weatherIcon.setAttribute('src', 'dist/img/fog.png');
+				  weatherWord.textContent = 'Mgliście';
+				  break;
+				case '01d':
+				  weatherIcon.setAttribute('src', 'dist/img/sun.png');
+				  weatherWord.textContent = 'Słonecznie';
+				  break;
+				case '01n':
+				  weatherIcon.setAttribute('src', 'dist/img/moon.png');
+				  weatherWord.textContent = 'Bezchmurnie';
+				  break;
+				case '02d':
+				case '03d':
+				case '04d':
+				  weatherIcon.setAttribute('src', 'dist/img/cloud.png');
+				  weatherWord.textContent = 'Pochmurno';
+				  break;
+				case '02n':
+				case '03n':
+				case '04n':
+				  weatherIcon.setAttribute('src', 'dist/img/nightCloud.png');
+				  weatherWord.textContent = 'Pochmurno';
+				  break;
+			  } 
 		});
 };
 
