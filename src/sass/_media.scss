@@ -2,8 +2,7 @@
 	body {
 		.app {
 			max-width: 740px;
-			// height: 687px;
-            margin-top: 13em;
+            margin-top: 2em;
 			.vertical-line {
 				display: none;
 			}
@@ -27,9 +26,8 @@
 			}
 
 			.statisctics-box {
-				// position: relative;
 				margin-top: 2em;
-				padding-bottom: 2em;
+				padding-bottom: 6.5em;
 				.category-box {
 					width: 100%;
 					align-self: flex-start;
@@ -72,18 +70,22 @@
 	body {
 		.app {
             width: 90%;
-            top: 6em;
+            top: 19em;
 
 			.air-weather {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-evenly;
+				.air-weather__air-quality{
+					order: 0;
+				}
                 .air-weather__air-quality-title{
                     margin-top: 1em;
                     font-size: 2.3rem;
                 }
 
 				.weather-type {
+					order: 3;
                     margin-top: 2em;
 				}
 			}
@@ -99,7 +101,7 @@
 			}
 
 			.statisctics-box {
-                order: 3;
+                // order: 3;
 				flex-direction: column;
                 font-size: 1.7rem;
                 margin-top: 0em;
@@ -116,17 +118,15 @@
 				}
 
 				.weather-stats {
-                    order: 3;
+                    order: 4;
 				}
 				.category-box__card {
 					width: 32%;
 				}
-				.adress__name-icon {
-				}
 			}
 
 			.adress {
-                order: 0;
+                // order: 0;
                 position: relative;
                 margin: 1.5em auto;
                 justify-content: center;
