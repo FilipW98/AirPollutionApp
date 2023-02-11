@@ -79,8 +79,8 @@ h1 {
 
 .air-weather {
 	display: flex;
-	justify-content: space-around;
-	margin-top: .5em;
+	justify-content: space-between;
+	margin-top: .7em;
 	.category-box {
 		display: flex;
 		width: 30%;
@@ -174,18 +174,19 @@ h1 {
 		flex-direction: column;
 		align-items: center;
 		margin-top: 1em;
+		width: 43%;
 		&-img {
 			width: 100px;
 			height: 100px;
 		}
 
 		&-title {
-			margin-top: 0.5em;
+			margin-top: 0.7em;
 			font-size: 2rem;
 		}
 
 		#air-quality {
-			font-size: 3rem;
+			font-size: 2.5rem;
 		}
 	}
 }
@@ -194,15 +195,14 @@ h1 {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin-left: 7.5em;
+	width: 43%;
 	&__img {
 		width: 150px;
 		height: 120px;
 	}
 	&__title {
-		margin-top: 0.5em;
-		font-size: 2.5rem;
-		text-align: center;
+		margin-top: 0.7em;
+		font-size: 2rem;
 	}
 }
 
@@ -310,8 +310,10 @@ h1 {
 		text-align: end;
 		margin-right: 2em;
 	}
+	
+}
 
-	.adress {
+.adress {
 		display: flex;
 		flex-direction: column;
 		align-self: flex-end;
@@ -364,4 +366,3 @@ h1 {
 			color: tomato;
 		}
 	}
-}
