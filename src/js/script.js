@@ -26,6 +26,48 @@ const cityerror = document.querySelector('.city-error');
 const API_LINK = 'https://api.openweathermap.org/geo/1.0/direct?q=';
 const API_KEY = '&appid=b005763a5f5701376b641f6d866e7e64&units=metric';
 
+const mediaQuery = window.matchMedia('(max-width: 576px)');
+const pollution = document.querySelector('.pollution');
+const weatherStats = document.querySelector('.weather-stats');
+const airWeather = document.querySelector('.air-weather__air-quality');
+const airWeatherBox = document.querySelector('.air-weather');
+const weatherType = document.querySelector('.weather-type');
+const statiscticsBox = document.querySelector('.statisctics-box');
+const adress = document.querySelector('.adress');
+
+if (mediaQuery.matches) {
+	airWeather.appendChild(pollution);
+	weatherType.appendChild(weatherStats);
+	airWeather.appendChild(adress);
+	console.log('ok');
+} else {
+	console.log('git');
+	statiscticsBox.appendChild(pollution);
+	statiscticsBox.appendChild(weatherStats);
+	statiscticsBox.appendChild(adress);
+
+}
+
+mediaQuery.addEventListener('change', function (event) {
+	if (event.matches) {
+		airWeather.appendChild(pollution);
+	weatherType.appendChild(weatherStats);
+	airWeather.appendChild(adress);
+
+
+		// weatherType.appendChild(weatherStats);
+		console.log('ok2');
+	} else {
+		console.log('git2');
+		statiscticsBox.appendChild(pollution);
+	statiscticsBox.appendChild(weatherStats);
+	statiscticsBox.appendChild(adress);
+
+		// airWeatherBox.appendChild(weatherType);
+
+	}
+});
+
 const getCoordinates = () => {
 	const city = input.value || 'Wrocław';
 	fetch(API_LINK + city + API_KEY)
@@ -53,7 +95,7 @@ const getAirPollution = (lat, lon) => {
 			// so2.textContent = data.list[0].components.so2.toFixed(1) + ' uq/m3';
 			const myUnionsArr = [pm10, pm25, co, so2];
 			const airComponent = data.list[0].components;
-			const unionsArr = [airComponent.pm10,airComponent.pm2_5,airComponent.co,airComponent.so2,];
+			const unionsArr = [airComponent.pm10, airComponent.pm2_5, airComponent.co, airComponent.so2];
 
 			for (let i = 0; i < myUnionsArr.length; i++) {
 				myUnionsArr[i].textContent = unionsArr[i].toFixed(1) + ' uq/m3';
@@ -91,7 +133,6 @@ const getWeather = (lat, lon) => {
 	fetch(API_LINK3 + lat + lon + API_KEY)
 		.then(res => res.json())
 		.then(data => {
-
 			if (input.value === '') {
 				input.setAttribute('placeholder', 'Musisz podać nazwę miasta');
 				cityName.textContent = 'WROCŁAW';
@@ -111,47 +152,46 @@ const getWeather = (lat, lon) => {
 
 			switch (data.weather[0].icon) {
 				case '11d':
-				  weatherIcon.setAttribute('src', 'dist/img/thunderstorm.png');
-				  weatherWord.textContent = 'Burza';
-				  break;
+					weatherIcon.setAttribute('src', 'dist/img/thunderstorm.png');
+					weatherWord.textContent = 'Burza';
+					break;
 				case '09d':
 				case '10d':
 				case '09n':
-				  weatherIcon.setAttribute('src', 'dist/img/rain.png');
-				  weatherWord.textContent = 'Deszczowo';
-				  break;
+					weatherIcon.setAttribute('src', 'dist/img/rain.png');
+					weatherWord.textContent = 'Deszczowo';
+					break;
 				case '13d':
-				  weatherIcon.setAttribute('src', 'dist/img/ice.png');
-				  weatherWord.textContent = 'Śnieg';
-				  break;
+					weatherIcon.setAttribute('src', 'dist/img/ice.png');
+					weatherWord.textContent = 'Śnieg';
+					break;
 				case '50d':
-				  weatherIcon.setAttribute('src', 'dist/img/fog.png');
-				  weatherWord.textContent = 'Mgliście';
-				  break;
+					weatherIcon.setAttribute('src', 'dist/img/fog.png');
+					weatherWord.textContent = 'Mgliście';
+					break;
 				case '01d':
-				  weatherIcon.setAttribute('src', 'dist/img/sun.png');
-				  weatherWord.textContent = 'Słonecznie';
-				  break;
+					weatherIcon.setAttribute('src', 'dist/img/sun.png');
+					weatherWord.textContent = 'Słonecznie';
+					break;
 				case '01n':
-				  weatherIcon.setAttribute('src', 'dist/img/moon.png');
-				  weatherWord.textContent = 'Bezchmurnie';
-				  break;
+					weatherIcon.setAttribute('src', 'dist/img/moon.png');
+					weatherWord.textContent = 'Bezchmurnie';
+					break;
 				case '02d':
 				case '03d':
 				case '04d':
-				  weatherIcon.setAttribute('src', 'dist/img/cloud.png');
-				  weatherWord.textContent = 'Pochmurno';
-				  break;
+					weatherIcon.setAttribute('src', 'dist/img/cloud.png');
+					weatherWord.textContent = 'Pochmurno';
+					break;
 				case '02n':
 				case '03n':
 				case '04n':
-				  weatherIcon.setAttribute('src', 'dist/img/nightCloud.png');
-				  weatherWord.textContent = 'Pochmurno';
-				  break;
-			  } 
+					weatherIcon.setAttribute('src', 'dist/img/nightCloud.png');
+					weatherWord.textContent = 'Pochmurno';
+					break;
+			}
 		});
 };
-
 
 for (let i = 0; i < infoIcons.length; i++) {
 	infoIcons[i].addEventListener('mouseenter', function () {

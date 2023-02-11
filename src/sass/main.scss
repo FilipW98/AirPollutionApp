@@ -81,6 +81,93 @@ h1 {
 	display: flex;
 	justify-content: space-around;
 	margin-top: .5em;
+	.category-box {
+		display: flex;
+		width: 30%;
+		flex-wrap: wrap;
+		justify-content: space-around;
+
+		&__title {
+			text-align: center;
+			width: 100%;
+		}
+		&__card {
+			position: relative;
+			text-align: center;
+			width: 30%;
+			margin: 0.5em;
+			margin-top: 0.7em;
+			padding: 0.5em;
+			border-radius: 10px;
+			box-shadow: 2px 2px 10px rgba(26, 25, 25, 0.959);
+			background-color: rgba(213, 212, 212, 0.205);
+
+			&-img {
+				width: 25px;
+				height: 30px;
+			}
+
+			.info {
+				position: absolute;
+				right: 0.3em;
+				top: 0.3em;
+				background-color: transparent;
+				border: none;
+				width: 30px;
+				height: 30px;
+			}
+
+			&-info {
+				position: absolute;
+				background-color: rgba(70, 60, 60, 0.973);
+				top: -185px;
+				right: -220px;
+				margin-left: 7.2em;
+				font-size: 1.4rem;
+				padding: 0.7em;
+				border-radius: 10px;
+				z-index: 1;
+				display: none;
+
+				span {
+					font-weight: bold;
+					color: tomato;
+				}
+			}
+
+			&-info--pm10 {
+				top: -120px;
+			}
+			&-info--pm25 {
+				top: -140px;
+			}
+			&-info--co {
+				top: -175px;
+			}
+			&-info--so2 {
+				top: -210px;
+			}
+			&-img--temp {
+				width: 16px;
+			}
+			.category-box__card-img--co {
+				width: 37px;
+			}
+			.category-box__card-img--wind {
+				width: 33px;
+			}
+			.category-box__card-img--real {
+				margin-right: 0.6em;
+			}
+			.category-box__card-img--temp {
+				margin-left: .2em;
+			}
+			.category-box__card-img--so2 {
+				width: 37px;
+				color: #fff;
+			}
+		}
+	}
 	
 	&__air-quality {
 		display: flex;
@@ -124,6 +211,12 @@ h1 {
 	justify-content: center;
 	align-items: center;
 	margin-top: 3em;
+	.pollution{
+		order: 0;
+	}
+	.weather-stats{
+		order:2;
+	}
 
 	.category-box {
 		display: flex;
@@ -224,6 +317,7 @@ h1 {
 		align-self: flex-end;
 		margin: 2.7em 2em;
 		margin: 1em;
+		order: 1;
 
 		&__name {
 			display: flex;

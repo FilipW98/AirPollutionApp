@@ -39,27 +39,28 @@
 				.category-box__card {
 					width: 39%;
 				}
-				.adress__name-icon {
-					margin: 0;
-				}
-			}
 
-			.adress {
-				position: absolute;
-				bottom: 15px;
-				align-items: center;
-				margin: 0;
-
-				.adress__name {
-					align-self: flex-start;
-				}
-				input {
-					margin-top: 0.5em;
-				}
-				.ok {
+				.adress {
 					position: absolute;
-					right: -60px;
 					bottom: 15px;
+					align-items: center;
+					margin: 0;
+					order: 0;
+
+					.adress__name {
+						align-self: flex-start;
+						.adress__name-icon {
+							margin: 0;
+						}
+					}
+					input {
+						margin-top: 0.5em;
+					}
+					.ok {
+						position: absolute;
+						right: -60px;
+						bottom: 15px;
+					}
 				}
 			}
 		}
@@ -70,48 +71,110 @@
 	body {
 		margin-bottom: 3em;
 		.app {
-            width: 90%;
+			width: 90%;
 
 			.air-weather {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
-				.air-weather__air-quality{
-					order: 0;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-evenly;
+				.category-box {
+					width: 100%;
+					justify-content: center;
+					margin: 3em 0em 2em 0em;
 				}
-                .air-weather__air-quality-title{
-                    margin-top: 1em;
-                    font-size: 2.3rem;
-                }
+				.air-weather__air-quality {
+					width: 100%;
+					.adress {
+						display: flex;
+						flex-direction: column;
+						margin: 2.5em;
+						order: 1;
+
+						&__name {
+							display: flex;
+							&-icon {
+								height: 48px;
+							}
+							&-city {
+								align-self: flex-end;
+								font-size: 2.5rem;
+								letter-spacing: 0.1em;
+							}
+						}
+
+						input {
+							margin-left: 0.5em;
+							margin-top: 1em;
+							padding: 0.6em;
+							width: 220px;
+							border-radius: 8px;
+						}
+
+						.ok {
+							height: 35px;
+							width: 50px;
+							align-self: center;
+							border-radius: 8px;
+							border: 1px solid #fff;
+							color: #fff;
+							cursor: pointer;
+							background-color: transparent;
+							transition: background-color 0.3s;
+						}
+
+						.ok:hover {
+							color: black;
+							border: 2px solid black;
+							background-color: #fff;
+						}
+						.city-error {
+							margin: 0.5em 0em;
+							color: tomato;
+						}
+					}
+				}
+
+				.air-weather__air-quality-title {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					margin-top: 1em;
+					#air-quality {
+						font-size: 2.4rem;
+					}
+				}
 
 				.weather-type {
-					order: 3;
-                    margin-top: 2em;
+					order: 0;
+					margin-top: 2em;
 				}
 			}
 
 			.weather-type__img {
-                height: 95px;
-                width: 130px;
-			}
-			.weather-type__title {
-                margin-top: 1em;
-                height: 80px;
+				height: 95px;
+				width: 130px;
 			}
 
 			.statisctics-box {
 				width: 78%;
 				margin: auto;
-                // order: 3;
 				flex-direction: column;
-                font-size: 1.7rem;
-                margin-top: 0em;
+				font-size: 1.7rem;
+				margin-top: 0em;
 				padding-bottom: 0;
-                .pollution{
-                    order: 1;
-					margin: auto;
-				
-                }
+				.adress {
+					position: relative;
+					margin: 1.5em auto;
+					justify-content: center;
+					align-items: center;
+
+					.ok {
+						position: static;
+						width: 30%;
+					}
+				}
+
 				.category-box {
 					.category-box__title {
 						width: 100%;
@@ -122,7 +185,6 @@
 				}
 
 				.weather-stats {
-                    order: 4;
 					margin: auto;
 					margin-top: 1em;
 				}
@@ -130,19 +192,19 @@
 					width: 107px;
 				}
 			}
+		}
+	}
+}
 
-			.adress {
-                // order: 0;
-                position: relative;
-                margin: 1.5em auto;
-                justify-content: center;
-                align-items: center;
-
-				.ok {
-                    position:static;
-                    width: 30%;
+@media (max-width: 390px) {
+	body {
+		.app {
+			.air-weather{
+				.category-box__card {
+					width: 41%;
 				}
 			}
+			
 		}
 	}
 }
