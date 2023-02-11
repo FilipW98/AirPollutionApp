@@ -1,66 +1,36 @@
 @media (max-width: 810px) {
 	body {
 		.app {
-			max-width: 740px;
 			h1 {
 				margin-bottom: 2em;
+				font-size: 2.9rem;
 			}
 			.vertical-line {
 				display: none;
 			}
-			h1 {
-				font-size: 2.8rem;
-			}
-			.air-weather {
-				margin-top: 2em;
 				.air-weather__air-quality {
 					margin-top: 0;
-					// margin: auto;
 					width: 50%;
-					// margin-right: 0;
-					.air-weather__air-quality-img {
-						width: 100px;
-						height: 100px;
-					}
 				}
 				.weather-type {
 					width: 50%;
-					.weather-type__title {
-						margin-top: 1em;
-					}
 				}
-			}
-
 			.weather-type__img {
 				width: 140px;
 				height: 100px;
 			}
-
 			.statisctics-box {
-				margin-top: 2em;
-				padding-bottom: 8em;
-				.category-box {
-					width: 100%;
-					align-self: flex-start;
-				}
-
-				.weather-stats {
-					display: flex;
-				}
+				padding-bottom: 8.5em;
 				.category-box__card {
 					width: 36%;
 				}
-
 				.adress {
 					position: absolute;
-					bottom: 15px;
+					bottom: 27px;
 					margin: 0;
-					.adress__name {
-						align-self: flex-start;
 						.adress__name-icon {
 							margin: 0;
 						}
-					}
 					input {
 						margin-top: 0.5em;
 					}
@@ -75,8 +45,6 @@
 	}
 }
 
-
-
 @media (max-width: 576px) {
 	body {
 		margin-bottom: 3em;
@@ -88,8 +56,6 @@
 			.air-weather {
 				flex-direction: column;
 				.category-box {
-					width: 100%;
-					justify-content: center;
 					margin: 3em 0em 2em 0em;
 					.category-box__card{
 						width: 31%;
@@ -101,10 +67,7 @@
 						position: relative;
 						align-self: center;
 						margin: 2.5em;
-						.mobile-line-one {
-							display: block;
-						}
-						.mobile-line-two {
+						.mobile-line-one, .mobile-line-two {
 							display: block;
 						}
 					}
@@ -112,11 +75,6 @@
 				.weather-type {
 					width: 100%;
 					margin-top: 2em;
-					order: 0;
-				}
-				.weather-type__img {
-					height: 95px;
-					width: 130px;
 				}
 			}
 		}
@@ -126,11 +84,21 @@
 @media (max-width: 390px) {
 	body {
 		.app {
+			.category-box__card {
+				width: 100px;
+			}
 			.air-weather {
 				.air-weather__air-quality{
 					.category-box{
 						.category-box__card {
 							width: 100px;
+						}
+					}
+					.air-weather__air-quality-title{
+						display: flex;
+						font-size: 2rem;
+						#air-quality{
+							font-size: 2rem;
 						}
 					}
 				}
@@ -141,9 +109,6 @@
 						align-items: center;
 						justify-content: center;
 						margin-top: 1em;
-						#air-quality {
-							font-size: 2.4rem;
-						}
 					}
 					.category-box{
 						.category-box__card {

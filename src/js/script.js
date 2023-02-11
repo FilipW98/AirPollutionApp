@@ -14,7 +14,6 @@ const so2 = document.querySelector('#so2');
 //Weather==============
 const weatherIcon = document.querySelector('.weather-type__img');
 const weatherWord = document.querySelector('.weather-type__title');
-
 const temp = document.querySelector('#temp');
 const feel = document.querySelector('#feel');
 const hum = document.querySelector('#hum');
@@ -35,14 +34,17 @@ const weatherType = document.querySelector('.weather-type');
 const statiscticsBox = document.querySelector('.statisctics-box');
 const adress = document.querySelector('.adress');
 
-
 const horizontalMobileLine = document.createElement('div');
 const horizontalMobileLineTwo = document.createElement('div');
+
+
 horizontalMobileLine.classList.add('mobile-line-one');
 horizontalMobileLineTwo.classList.add('mobile-line-two');
 adress.appendChild(horizontalMobileLine);
 adress.appendChild(horizontalMobileLineTwo);
 
+
+//This code change HTML structure for mobile devices
 if (mediaQuery.matches) {
 	airWeather.appendChild(pollution);
 	weatherType.appendChild(weatherStats);
@@ -64,7 +66,7 @@ mediaQuery.addEventListener('change', function (event) {
 		statiscticsBox.appendChild(adress);
 	}
 });
-
+//================
 const getCoordinates = () => {
 	const city = input.value || 'Wrocław';
 	fetch(API_LINK + city + API_KEY)
@@ -86,17 +88,12 @@ const getAirPollution = (lat, lon) => {
 	fetch(API_LINK2 + lat + lon + API_KEY)
 		.then(res => res.json())
 		.then(data => {
-			// pm10.textContent = data.list[0].components.pm10.toFixed(1) + ' uq/m3';
-			// pm25.textContent = data.list[0].components.pm2_5.toFixed(1) + ' uq/m3';
-			// co.textContent = data.list[0].components.co.toFixed(1) + ' uq/m3';
-			// so2.textContent = data.list[0].components.so2.toFixed(1) + ' uq/m3';
+
 			const myUnionsArr = [pm10, pm25, co, so2];
 			const airComponent = data.list[0].components;
 			const unionsArr = [airComponent.pm10, airComponent.pm2_5, airComponent.co, airComponent.so2];
 
-			for (let i = 0; i < myUnionsArr.length; i++) {
-				myUnionsArr[i].textContent = unionsArr[i].toFixed(1) + ' uq/m3';
-			}
+			myUnionsArr.forEach((element,index) => {element.textContent = unionsArr[index].toFixed(1) + ' uq/m3';})
 
 			myUnionsArr.forEach(el => {
 				el.parentElement.style.backgroundColor = 'rgba(213, 212, 212, 0.205)';
