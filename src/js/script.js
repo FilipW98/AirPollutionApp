@@ -35,6 +35,14 @@ const weatherType = document.querySelector('.weather-type');
 const statiscticsBox = document.querySelector('.statisctics-box');
 const adress = document.querySelector('.adress');
 
+
+const horizontalMobileLine = document.createElement('div');
+const horizontalMobileLineTwo = document.createElement('div');
+horizontalMobileLine.classList.add('mobile-line-one');
+horizontalMobileLineTwo.classList.add('mobile-line-two');
+adress.appendChild(horizontalMobileLine);
+adress.appendChild(horizontalMobileLineTwo);
+
 if (mediaQuery.matches) {
 	airWeather.appendChild(pollution);
 	weatherType.appendChild(weatherStats);
@@ -45,26 +53,19 @@ if (mediaQuery.matches) {
 	statiscticsBox.appendChild(pollution);
 	statiscticsBox.appendChild(weatherStats);
 	statiscticsBox.appendChild(adress);
-
 }
 
 mediaQuery.addEventListener('change', function (event) {
 	if (event.matches) {
 		airWeather.appendChild(pollution);
-	weatherType.appendChild(weatherStats);
-	airWeather.appendChild(adress);
-
-
-		// weatherType.appendChild(weatherStats);
+		weatherType.appendChild(weatherStats);
+		airWeather.appendChild(adress);
 		console.log('ok2');
 	} else {
 		console.log('git2');
 		statiscticsBox.appendChild(pollution);
-	statiscticsBox.appendChild(weatherStats);
-	statiscticsBox.appendChild(adress);
-
-		// airWeatherBox.appendChild(weatherType);
-
+		statiscticsBox.appendChild(weatherStats);
+		statiscticsBox.appendChild(adress);
 	}
 });
 
