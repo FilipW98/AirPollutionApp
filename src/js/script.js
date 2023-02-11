@@ -47,9 +47,7 @@ if (mediaQuery.matches) {
 	airWeather.appendChild(pollution);
 	weatherType.appendChild(weatherStats);
 	airWeather.appendChild(adress);
-	console.log('ok');
 } else {
-	console.log('git');
 	statiscticsBox.appendChild(pollution);
 	statiscticsBox.appendChild(weatherStats);
 	statiscticsBox.appendChild(adress);
@@ -60,9 +58,7 @@ mediaQuery.addEventListener('change', function (event) {
 		airWeather.appendChild(pollution);
 		weatherType.appendChild(weatherStats);
 		airWeather.appendChild(adress);
-		console.log('ok2');
 	} else {
-		console.log('git2');
 		statiscticsBox.appendChild(pollution);
 		statiscticsBox.appendChild(weatherStats);
 		statiscticsBox.appendChild(adress);
@@ -101,6 +97,11 @@ const getAirPollution = (lat, lon) => {
 			for (let i = 0; i < myUnionsArr.length; i++) {
 				myUnionsArr[i].textContent = unionsArr[i].toFixed(1) + ' uq/m3';
 			}
+
+			myUnionsArr.forEach(el => {
+				el.parentElement.style.backgroundColor = 'rgba(213, 212, 212, 0.205)';
+			})
+
 			if (data.list[0].main.aqi === 1) {
 				pollutionWord.textContent = 'Dobra';
 				pollutionWord.style.color = 'lime';
@@ -148,8 +149,6 @@ const getWeather = (lat, lon) => {
 			feel.textContent = data.main.feels_like.toFixed(1) + ' ℃';
 			hum.textContent = data.main.humidity + ' %';
 			wind.textContent = kmPerH + ' km/h';
-
-			console.log(data.weather[0].icon);
 
 			switch (data.weather[0].icon) {
 				case '11d':
