@@ -209,5 +209,6 @@ const pressEnter = e => {
 	}
 };
 
+
 okBtn.addEventListener('click', getCoordinates);
 input.addEventListener('keyup', pressEnter);
