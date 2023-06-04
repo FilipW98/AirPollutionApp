@@ -4,15 +4,16 @@
 ## An application for everyone who cares about their health, don't leave the house without checking the level of air pollution in your area!
 
 
-### Live: https://filipw98.github.io/AirPollutionApp/
+
 
 
 
 ### Technologies: 
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer" > <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40" /> </a>
- <a href="https://sass-lang.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> 
- 
 
+ 
+ <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://github.com/tandpfun/skill-icons/blob/main/icons/JavaScript.svg" alt="Javascript icon" width="47" height="47"/> </a><a href="https://www.w3schools.com/html/" target="_blank" rel="noreferrer"> <img src="https://github.com/tandpfun/skill-icons/blob/main/icons/HTML.svg" alt="HTML icon" width="47" height="47"/> </a> <a href="https://sass-lang.com/" target="_blank" rel="noreferrer"> <img src="https://github.com/tandpfun/skill-icons/blob/main/icons/Sass.svg" alt="Sass icon" width="47" height="47"/> </a> 
+ 
+ ### Live: https://filipw98.github.io/AirPollutionApp/
 
  ### Features:
  - This project has been made with API from: https://openweathermap.org/api
