@@ -1,7 +1,7 @@
 # Air Pollution App
 
 
-## An application for everyone who cares about their health, don't leave the house without checking the level of air pollution in your area!
+## An application for everyone who cares about their health, don't leave Your house without checking the level of air pollution in your area!
 
 
 
