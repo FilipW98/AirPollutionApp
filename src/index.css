@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.app-box {
+  /* background: linear-gradient(45deg, #4F46E5, #22D3EE, #F59E0B, #EF4444); */
+  	background-image: linear-gradient(
+		-45deg,
+		rgba(59, 173, 227, 1) 0%,
+		rgb(80, 105, 231) 25%,
+		rgba(152, 68, 183, 1) 51%,
+		rgba(255, 53, 127, 0.596) 100%
+	);
+  background-size: 400% 400%;
+  animation: gradientAnimation 30s ease infinite;
+}
+
+.info:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}

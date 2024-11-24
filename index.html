@@ -1,142 +1,15 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AirPollutionApp</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inika:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./dist/css/main.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Air Pollution App</title>
 </head>
 
 <body>
-
-    <div class="app">
-
-        <h1>AIR POLLUTION APP</h1>
-
-        <div class="air-weather">
-
-            <div class="air-weather__air-quality">
-                <img class="air-weather__air-quality-img" src="./dist/img/question.png" alt="weather icon">
-                <p class="air-weather__air-quality-title">Jakość powietrza: <span id="air-quality"></span></p>
-            </div>
-
-
-            <div class="weather-type">
-                <img class="weather-type__img" src="./dist/img/unknown.png" alt="weather icon">
-                <p class="weather-type__title">Typ pogody</p>
-            </div>
-        </div>
-
-        <div class="statisctics-box">
-            <div class="category-box pollution">
-                <div class="category-box__title">
-                    <h2>Smog</h2>
-                    <div class="underline pollution-underline"></div>
-                </div>
-                <div class="category-box__card" id="category-box__card--mobile">
-                    <img class="category-box__card-img" src="./src/img/PM10.svg" alt="PM10 icon">
-                    <button class="info" id="one"><img src="./dist/img/info.svg" alt="info icon"></button>
-                    <div class="category-box__card-info category-box__card-info--pm10"><span>PM10</span> to mieszanina
-                        zawieszonych w powietrzu cząsteczek, których średnica nie przekracza 10 mikrometrów. Norma
-                        średniego stężenia tego pyłu wynosi <span>20 µg/m3</span>.</div>
-                    <p class="category-box__card-title">PM10</p>
-                    <p class="category-box__card-data" id="pm10">0 <span>uq/m3</span></p>
-                </div>
-
-                <div class="category-box__card" id="category-box__card--mobile">
-                    <img class="category-box__card-img" src="./src/img/PM2.5.svg" alt="PM2.5 icon">
-                    <button class="info" id="two"> <img src="./dist/img/info.svg" alt="info icon"></button>
-                    <div class="category-box__card-info category-box__card-info--pm25"><span>PM2.5</span> to aerozole
-                        atmosferyczne, których średnica nie przekracza 2.5 mikrometra. Tego rodzaju pył zawieszony
-                        jest uznawany za najgroźniejszy dla zdrowia człowieka. Norma stężenia tego pyłu to <span>10
-                            µg/m3</span>.</div>
-                    <p class="category-box__card-title">PM2.5</p>
-                    <p class="category-box__card-data" id="pm25">0 <span>uq/m3</span></p>
-                </div>
-
-                <div class="category-box__card" id="category-box__card--mobile">
-                    <img class="category-box__card-img category-box__card-img--co" src="./dist/img/carbon-dioxide.svg"
-                        alt="Carbon monoxide icon">
-                    <button class="info" id="three"><img src="./dist/img/info.svg" alt="info icon"></button>
-                    <div class="category-box__card-info category-box__card-info--co"><span>Tlenek węgla</span>, potocznie
-                        zwany czadem, jest gazem silnie trującym, bezbarwnym i bezwonnym, nieco lżejszym od powietrza,
-                        co powoduje, że łatwo się z nim miesza. Najwyższe dopuszczalne stężenie tego gazu
-                        wynosi<span> 9000 mg/m3</span>.</div>
-                    <p class="category-box__card-title">Co</p>
-                    <p class="category-box__card-data" id="co">0 <span>uq/m3</span></p>
-                </div>
-
-                <div class="category-box__card" id="category-box__card--mobile">
-                    <img class="category-box__card-img category-box__card-img--so2" src="./dist/img/Triangle.svg"
-                        alt="Sulphur dioxide icon">
-                    <button class="info" id="four"><img src="./dist/img/info.svg" alt="info icon"></button>
-                    <div class=" category-box__card-info category-box__card-info--so2"><span>Dwutlenek siarki</span> jest
-                        emitowany do atmosfery podczas spalania paliw zawierających siarkę. Największym źródłem emisji
-                        SO2, są elektrownie spalające paliwa kopalne. Związek ten przyczynia się do
-                        powstawania kwaśnych deszczy. Dopuszczalne stężenie tego gazu w powietrzu wynosi<span>
-                            125 µg/m3</span>.</div>
-                    <p class="category-box__card-title">SO2</p>
-                    <p class="category-box__card-data" id="so2">0<span> uq/m3</span></p>
-                </div>
-            </div>
-
-            <div class="vertical-line"></div>
-
-            <div class="adress">
-                <div class="adress__name">
-                    <img class="adress__name-icon" src="dist/img/location2.png" alt="location icon">
-                    <p class="adress__name-city"></p>
-                </div>
-                <input type="text" placeholder="Podaj lokalizację">
-                <p class="city-error"></p>
-                <button class="ok">OK</button>
-            </div>
-
-
-            <div class="category-box weather-stats">
-                <div class="category-box__title">
-                    <h2>Pogoda</h2>
-                    <div class="underline weather-stats__title-underline"></div>
-                </div>
-                <div class="category-box__card">
-                    <img class="category-box__card-img category-box__card-img--temp" src="./dist/img/thermometer1.svg"
-                        alt="temp icon">
-                    <p class="category-box__card-title">Temp</p>
-                    <p class="category-box__card-data" id="temp">0 <span>C</span></p>
-                </div>
-
-                <div class="category-box__card">
-                    <img class="category-box__card-img category-box__card-img--real" src="./dist/img/realfeel.svg"
-                        alt="feel temp icon">
-                    <p class="category-box__card-title">Odczuwalna</p>
-                    <p class="category-box__card-data" id="feel">0 <span>C</span></p>
-                </div>
-
-                <div class="category-box__card">
-                    <img class="category-box__card-img" src="./dist/img/humidity.svg" alt="humidity icon">
-                    <p class="category-box__card-title">Wilgotność</p>
-                    <p class="category-box__card-data" id="hum">0 <span>%</span></p>
-                </div>
-
-                <div class="category-box__card">
-                    <img class="category-box__card-img category-box__card-img--wind" src="./dist/img/Wind.svg"
-                        alt="wind speed icon">
-                    <p class="category-box__card-title">Wiatr</p>
-                    <p class="category-box__card-data" id="wind">0 <span>km/h</span></p>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <script src="./dist/js/script.min.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
 </body>
 
 </html>
