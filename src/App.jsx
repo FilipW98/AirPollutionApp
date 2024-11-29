@@ -161,7 +161,7 @@ const AirQualityMonitor = () => {
 									<div className='flex justify-between items-start mb-2 lg:text-xl '>
 										<span className='text-slate-400'>PM10</span>
 
-										<InfoTooltip pollutantInfo={pollutantInfo[0].description} />
+										<InfoTooltip pollutantType='pm10' pollutantInfo={pollutantInfo[0].description} />
 									</div>
 									<div className='text-xl font-bold text-white mb-1 md:text-xl  '>{data.pm10} µg/m³</div>
 									<div
@@ -180,7 +180,7 @@ const AirQualityMonitor = () => {
 								<CardContent className='p-5'>
 									<div className='flex justify-between items-start mb-2 lg:text-xl '>
 										<span className='text-slate-400'>PM2.5</span>
-										<InfoTooltip pollutantInfo={pollutantInfo[1].description} />
+										<InfoTooltip pollutantType='pm25' pollutantInfo={pollutantInfo[1].description} />
 									</div>
 									<div className='text-xl font-bold text-white mb-1'>{data.pm25} µg/m³</div>
 									<div
@@ -199,7 +199,7 @@ const AirQualityMonitor = () => {
 								<CardContent className='p-5'>
 									<div className='flex justify-between items-start mb-2 lg:text-xl '>
 										<span className='text-slate-400'>CO</span>
-										<InfoTooltip pollutantInfo={pollutantInfo[2].description} />
+										<InfoTooltip pollutantType='CO' pollutantInfo={pollutantInfo[2].description} />
 									</div>
 									<div className='text-xl font-bold text-white mb-1'>{data.co} µg/m³</div>
 									<div
@@ -218,7 +218,7 @@ const AirQualityMonitor = () => {
 								<CardContent className='p-5'>
 									<div className='flex justify-between items-start mb-2 lg:text-xl '>
 										<span className='text-slate-400'>SO2</span>
-										<InfoTooltip pollutantInfo={pollutantInfo[3].description} />
+										<InfoTooltip pollutantType='SO2' pollutantInfo={pollutantInfo[3].description} />
 									</div>
 									<div className='text-xl font-bold text-white mb-1'>{data.so2} µg/m³</div>
 									<div

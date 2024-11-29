@@ -16,7 +16,11 @@
 }
 
 .app-box {
-  /* background: linear-gradient(45deg, #4F46E5, #22D3EE, #F59E0B, #EF4444); */
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
   	background-image: linear-gradient(
 		-45deg,
 		rgba(59, 173, 227, 1) 0%,
@@ -26,9 +30,53 @@
 	);
   background-size: 400% 400%;
   animation: gradientAnimation 30s ease infinite;
+
+
+  @media(max-width:1025px){
+    height: 100%;
+  }
 }
 
 .info:hover .tooltip {
   opacity: 1;
   visibility: visible;
+}
+
+.info-card{
+  width: 400px;
+  @media(max-width:1025px){
+    /* width: auto; */
+    left: auto;
+    right: 0;
+  }
+}
+
+.pm10-info{
+  @media(max-width:640px){
+    left: -190px;
+  }
+}
+
+.co-info,.so2-info{
+  width: 400px;
+    @media(max-width:640px){
+    width: 208px;
+  }
+}
+
+.so2-info,.pm25-info{
+  @media(max-width:1025px){
+    left: auto;
+    right: 0;
+  }
+}
+
+.co-info{
+  @media(max-width:991px){
+    left: -125px;
+  }
+  @media(max-width:640px){
+    /* left: -380px; */
+    left: -180px;
+  }
 }
