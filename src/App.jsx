@@ -131,7 +131,7 @@ const AirQualityMonitor = () => {
 		<div className='app-box py-9 md:px-9 px-4'>
 			<div className='w-full max-w-screen-lg mx-auto p-6 bg-slate-700 rounded-lg'>
 				<h1 className='text-3xl font-bold text-white mb-6 text-center'>
-					Air Quality Monitor
+					Air Pollution App
 					{cityName && <div className='text-xl mt-2 text-slate-400'>{cityName}</div>}
 				</h1>
 
