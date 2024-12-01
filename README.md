@@ -1,7 +1,14 @@
-# Air Pollution App
+<div align="center" >
+<h1>
+ Air Pollution App
+</h1> 
+</div>
 
-
+<div align="center">
 ## An application for everyone who cares about their health, don't leave Your house without checking the level of air pollution in your area!
+ 
+</div>
+
 
 
 ## <div align="center" ><a href="https://filipw98.github.io/FashionStore/" target="_blank" rel="noreferrer"> <img src="https://github.com/FilipW98/AirPollutionApp/blob/master/src/assets/img/live-icon.png" alt="live icon" width="80" height="40"/> </a>  </div>
