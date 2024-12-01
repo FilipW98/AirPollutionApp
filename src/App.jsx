@@ -47,51 +47,62 @@ const AirQualityMonitor = () => {
 		aqi: 1,
 	});
 
-	const fetchData = async city => {
-		try {
-			const geoResponse = await fetch(`${GEO_API}?q=${city}&appid=${API_KEY}&units=metric`);
-			const geoData = await geoResponse.json();
 
-			if (!geoData.length) {
-				setError('Miasto nie znalezione');
-				return;
-			}
+const fetchData = async city => {
+	try {
+		const geoResponse = await fetch(`${GEO_API}?q=${encodeURIComponent(city)}&appid=${API_KEY}`);
+		const geoData = await geoResponse.json();
 
-			const { lat, lon } = geoData[0];
-
-			
-			const pollutionResponse = await fetch(`${POLLUTION_API}?lat=${lat}&lon=${lon}&appid=${API_KEY}`);
-			const pollutionData = await pollutionResponse.json();
-
-			
-			const weatherResponse = await fetch(`${WEATHER_API}?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`);
-			const weatherData = await weatherResponse.json();
-
-			const components = pollutionData.list[0].components;
-			const weather = weatherData.main;
-
-			setData({
-				pm10: components.pm10.toFixed(1),
-				pm25: components.pm2_5.toFixed(1),
-				co: components.co.toFixed(1),
-				so2: components.so2.toFixed(1),
-				temp: weather.temp.toFixed(1),
-				feelsLike: weather.feels_like.toFixed(1),
-				wind: (weatherData.wind.speed * 3.6).toFixed(1),
-				humidity: weather.humidity,
-				aqi: pollutionData.list[0].main.aqi,
-			});
-
-			setCityName(city.toUpperCase());
-			setError('');
-			setSearchQuery('');
-		} catch (err) {
-			setError('Wystąpił błąd podczas pobierania danych');
+		if (!geoData || !geoData[0] || !geoData[0].lat || !geoData[0].lon) {
+			setError('Miasto nie znalezione');
+			return;
 		}
-	};
+
+		const polishName = geoData[0].local_names?.pl;
+		const apiCityName = (polishName || geoData[0].name || '').toLowerCase();
+		const userInput = city.toLowerCase();
+
+		if (!apiCityName || apiCityName !== userInput) {
+			setError('Miasto nie znalezione');
+			return;
+		}
+
+
+		const { lat, lon } = geoData[0];
+
+		const pollutionResponse = await fetch(`${POLLUTION_API}?lat=${lat}&lon=${lon}&appid=${API_KEY}`);
+		const pollutionData = await pollutionResponse.json();
+
+		const weatherResponse = await fetch(`${WEATHER_API}?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`);
+		const weatherData = await weatherResponse.json();
+
+		const components = pollutionData.list[0]?.components || {};
+		const weather = weatherData.main || {};
+
+		setData({
+			pm10: components.pm10 ? components.pm10.toFixed(1) : 'Brak danych',
+			pm25: components.pm2_5 ? components.pm2_5.toFixed(1) : 'Brak danych',
+			co: components.co ? components.co.toFixed(1) : 'Brak danych',
+			so2: components.so2 ? components.so2.toFixed(1) : 'Brak danych',
+			temp: weather.temp ? weather.temp.toFixed(1) : 'Brak danych',
+			feelsLike: weather.feels_like ? weather.feels_like.toFixed(1) : 'Brak danych',
+			wind: weatherData.wind?.speed ? (weatherData.wind.speed * 3.6).toFixed(1) : 'Brak danych',
+			humidity: weather.humidity || 'Brak danych',
+			aqi: pollutionData.list[0]?.main.aqi || 1,
+		});
+
+
+		setCityName(polishName?.toUpperCase() || geoData[0].name.toUpperCase());
+		setError('');
+		setSearchQuery('');
+	} catch (err) {
+		setError('Wystąpił błąd podczas pobierania danych');
+	}
+};
+
 
 	useEffect(() => {
-		fetchData('Warsaw');
+		fetchData('Warszawa');
 	}, []);
 
 	const handleSearch = e => {
@@ -126,6 +137,7 @@ const AirQualityMonitor = () => {
 				return { text: 'Zła', color: 'text-red-400' };
 		}
 	};
+
 
 	return (
 		<div className='app-box py-9 md:px-9 px-4'>
@@ -252,7 +264,7 @@ const AirQualityMonitor = () => {
 								<CardContent className='p-5'>
 									<div className='text-slate-400 mb-2 lg:text-xl '>Wiatr</div>
 									<div className='text-xl font-bold text-white mb-1'>{data.wind} km/h</div>
-									<div className='text-slate-400  md:text-lg lg:text-base'>North-East</div>
+									<div className='text-slate-400  md:text-lg lg:text-base'>Płn-Wsch</div>
 								</CardContent>
 							</Card>
 
