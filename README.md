@@ -40,5 +40,5 @@
 • If You don't set any city, Warsaw will be set as default
 
 ### Screenshot 
- <img src="https://github.com/FilipW98/AirPollutionApp/blob/master/src/assets/screenshots/app_ui.png" alt="html5"  style="width:60%"/>
+ <img src="https://github.com/FilipW98/AirPollutionApp/blob/master/src/assets/screenshots/app_ui.png" alt="html5"  style="width:100%"/>
 
