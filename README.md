@@ -4,6 +4,7 @@
 ## An application for everyone who cares about their health, don't leave Your house without checking the level of air pollution in your area!
 
 
+## <div align="center" ><a href="https://filipw98.github.io/FashionStore/" target="_blank" rel="noreferrer"> <img src="https://github.com/FilipW98/AirPollutionApp/blob/master/src/assets/img/live-icon.png" alt="live icon" width="80" height="40"/> </a>  </div>
 
 
 
@@ -35,5 +36,5 @@
 • If You don't set any city, Warsaw will be set as default
 
 ### Screenshot 
- <img src="https://github.com/FilipW98/AirPollutionApp/blob/master/assets/screenshots/app_ui.png" alt="html5" width="820" height="490"/>
+ <img src="https://github.com/FilipW98/AirPollutionApp/blob/master/src/assets/screenshots/app_ui.png" alt="html5" width="820" height="490"/>
 
