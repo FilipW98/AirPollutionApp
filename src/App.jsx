@@ -67,7 +67,6 @@ const fetchData = async city => {
 			return;
 		}
 
-
 		const { lat, lon } = geoData[0];
 
 		const pollutionResponse = await fetch(`${POLLUTION_API}?lat=${lat}&lon=${lon}&appid=${API_KEY}`);
