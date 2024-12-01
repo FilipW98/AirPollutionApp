@@ -33,7 +33,6 @@
 - Wind speed
 
 • If You don't set any city, Warsaw will be set as default
-• Please write in Polish!
 
 ### Screenshot 
  <img src="https://github.com/FilipW98/AirPollutionApp/blob/master/assets/screenshots/app_ui.png" alt="html5" width="820" height="490"/>
