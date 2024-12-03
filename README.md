@@ -17,11 +17,11 @@
 
 
 ### Technologies: 
-<div style="text-decoration:none">
+
  
  <img src="https://github.com/tandpfun/skill-icons/blob/main/icons/React-Dark.svg" alt="React icon" width="47" height="47"/>  <img src="https://github.com/tandpfun/skill-icons/blob/main/icons/TailwindCSS-Dark.svg" alt="Tailwind icon" width="47" height="47"/>
 
-</div>
+
 
  ### Features:
  - This project has been made with API from: https://openweathermap.org/api
