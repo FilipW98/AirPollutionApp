@@ -19,7 +19,7 @@
 ### Technologies: 
 <div style="text-decoration:none">
  
-<a href="https://react.dev/" target="_blank" rel="noreferrer" style="text-decoration:none !important"> <img src="https://github.com/tandpfun/skill-icons/blob/main/icons/React-Dark.svg" alt="React icon" width="47" height="47"/> </a> <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"> <img src="https://github.com/tandpfun/skill-icons/blob/main/icons/TailwindCSS-Dark.svg" alt="Tailwind icon" width="47" height="47"/> </a>
+ <img src="https://github.com/tandpfun/skill-icons/blob/main/icons/React-Dark.svg" alt="React icon" width="47" height="47"/>  <img src="https://github.com/tandpfun/skill-icons/blob/main/icons/TailwindCSS-Dark.svg" alt="Tailwind icon" width="47" height="47"/>
 
 </div>
 
