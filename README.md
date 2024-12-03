@@ -14,7 +14,11 @@
 
 ## <div align="center" ><a href="https://filipw98.github.io/AirPollutionApp/" target="_blank" rel="noreferrer"> <img src="https://github.com/FilipW98/AirPollutionApp/blob/master/src/assets/img/live-icon.png" alt="live icon" width="80" height="40"/> </a>  </div>
 
-
+<style>
+a {
+  text-decoration: none !important;
+}
+</style>
 
 ### Technologies: 
 <a href="https://react.dev/" target="_blank" rel="noreferrer" style="text-decoration:none !important"> <img src="https://github.com/tandpfun/skill-icons/blob/main/icons/React-Dark.svg" alt="React icon" width="47" height="47"/> </a> <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"> <img src="https://github.com/tandpfun/skill-icons/blob/main/icons/TailwindCSS-Dark.svg" alt="Tailwind icon" width="47" height="47"/> </a>
